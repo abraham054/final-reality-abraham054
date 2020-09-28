@@ -4,6 +4,16 @@ ChangeLog
 Version 2.0
 -----------
 Write your changes in here
+- (RC.1) the package model satisfies the SOLID principles
+- (B.8) Added a bunch of methods to both player character and enemy
+- (B.7) Added attack points to the enemy 
+- (B.6) Added health and defense to the player and the enemy
+- (B.5) The abstract character got rid of several methods
+- (B.4) Both player and enemy have the wait turn method
+- (B.3) Enemy is no longer able to equip a weapon
+- (B.2) Enemy isn't a class anymore
+- (B.1) The enemy is no longer able to have a class
+
 
 Version 1.0
 -----------

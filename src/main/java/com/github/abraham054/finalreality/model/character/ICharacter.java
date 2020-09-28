@@ -1,7 +1,7 @@
-package com.github.cc3002.finalreality.model.character;
+package com.github.abraham054.finalreality.model.character;
 
-import com.github.cc3002.finalreality.model.character.player.CharacterClass;
-import com.github.cc3002.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.character.player.CharacterClass;
+import com.github.abraham054.finalreality.model.weapon.Weapon;
 
 /**
  * This represents a character from the game.
@@ -24,17 +24,13 @@ public interface ICharacter {
   String getName();
 
   /**
-   * Equips a weapon to the character.
+   * Returns the defense of the character.
    */
-  void equip(Weapon weapon);
+  int getDefense();
 
   /**
-   * Return this character's equipped weapon.
+   * Returns the health points of the character.
    */
-  Weapon getEquippedWeapon();
+  int getHealthPoints();
 
-  /**
-   * Returns this character's class.
-   */
-  CharacterClass getCharacterClass();
 }

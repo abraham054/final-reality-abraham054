@@ -4,8 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import com.github.cc3002.finalreality.model.character.player.CharacterClass;
-import com.github.cc3002.finalreality.model.character.player.PlayerCharacter;
+import com.github.abraham054.finalreality.model.character.Enemy;
+import com.github.abraham054.finalreality.model.character.player.CharacterClass;
+import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
 import java.util.EnumMap;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +25,7 @@ class PlayerCharacterTest extends AbstractCharacterTest {
   private static final String KNIGHT_NAME = "Adelbert";
   private static final String WHITE_MAGE_NAME = "Eiko";
   private static final String ENGINEER_NAME = "Cid";
-  private static final String THIEF_NAME = "Zidane";
+  private static final String THIEF_NAME = "Tifa";
   private Map<CharacterClass, String> characterNames;
 
   /**
