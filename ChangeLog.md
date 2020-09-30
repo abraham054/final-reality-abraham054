@@ -5,6 +5,7 @@ Version 2.0
 -----------
 Write your changes in here
 - (RC.1) the package model satisfies the SOLID principles
+- (B.9) Created a magic and common weapon class, both extend weapon
 - (B.8) Added a bunch of methods to both player character and enemy
 - (B.7) Added attack points to the enemy 
 - (B.6) Added health and defense to the player and the enemy

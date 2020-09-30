@@ -6,6 +6,6 @@ package com.github.abraham054.finalreality.model.weapon;
  * @author Ignacio Slater Muñoz.
  * @author <Your name>
  */
-public enum WeaponType {
-  SWORD, AXE, KNIFE, STAFF, BOW
+public enum CommonWeaponType {
+  SWORD, AXE, KNIFE, BOW
 }
