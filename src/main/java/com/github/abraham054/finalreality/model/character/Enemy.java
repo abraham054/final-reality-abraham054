@@ -1,11 +1,9 @@
 package com.github.abraham054.finalreality.model.character;
 
-import com.github.abraham054.finalreality.model.character.player.CharacterClass;
-
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
-
+import java.util.concurrent.Executors;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -59,8 +57,9 @@ public class Enemy extends AbstractCharacter {
    */
   @Override
   public void waitTurn() {
+    scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
     scheduledExecutor
-            .schedule(AbstractCharacter::addToQueue, this.getWeight() / 10, TimeUnit.SECONDS);
+            .schedule(this::addToQueue, this.getWeight() / 10, TimeUnit.SECONDS);
   }
 
   @Override

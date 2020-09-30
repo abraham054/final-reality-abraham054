@@ -1,12 +1,8 @@
 package com.github.abraham054.finalreality.model.character;
 
-import com.github.abraham054.finalreality.model.character.player.CharacterClass;
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.weapon.Weapon;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -18,10 +14,10 @@ import org.jetbrains.annotations.NotNull;
 public abstract class AbstractCharacter implements ICharacter {
 
   protected  final BlockingQueue<ICharacter> turnsQueue;
+  protected ScheduledExecutorService scheduledExecutor;
   protected final String name;
   private static int healthPoints;
   private final int defense;
-  protected ScheduledExecutorService scheduledExecutor;
 
   /**
    * Creates a new abstract character.

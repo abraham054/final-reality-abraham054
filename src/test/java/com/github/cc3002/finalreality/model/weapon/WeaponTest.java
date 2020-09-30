@@ -3,7 +3,7 @@ package com.github.cc3002.finalreality.model.weapon;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponType;
+import CommonWeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,20 +25,20 @@ class WeaponTest {
 
   @BeforeEach
   void setUp() {
-    testAxe = new Weapon(AXE_NAME, DAMAGE, SPEED, WeaponType.AXE);
-    testStaff = new Weapon(STAFF_NAME, DAMAGE, SPEED, WeaponType.STAFF);
-    testSword = new Weapon(SWORD_NAME, DAMAGE, SPEED, WeaponType.SWORD);
-    testBow = new Weapon(BOW_NAME, DAMAGE, SPEED, WeaponType.BOW);
-    testKnife = new Weapon(KNIFE_NAME, DAMAGE, SPEED, WeaponType.KNIFE);
+    testAxe = new Weapon(AXE_NAME, DAMAGE, SPEED, CommonWeaponType.AXE);
+    testStaff = new Weapon(STAFF_NAME, DAMAGE, SPEED, CommonWeaponType.STAFF);
+    testSword = new Weapon(SWORD_NAME, DAMAGE, SPEED, CommonWeaponType.SWORD);
+    testBow = new Weapon(BOW_NAME, DAMAGE, SPEED, CommonWeaponType.BOW);
+    testKnife = new Weapon(KNIFE_NAME, DAMAGE, SPEED, CommonWeaponType.KNIFE);
   }
 
   @Test
   void constructorTest() {
-    var expectedAxe = new Weapon(AXE_NAME, DAMAGE, SPEED, WeaponType.AXE);
-    var expectedStaff = new Weapon(STAFF_NAME, DAMAGE, SPEED, WeaponType.STAFF);
-    var expectedSword = new Weapon(SWORD_NAME, DAMAGE, SPEED, WeaponType.SWORD);
-    var expectedBow = new Weapon(BOW_NAME, DAMAGE, SPEED, WeaponType.BOW);
-    var expectedKnife = new Weapon(KNIFE_NAME, DAMAGE, SPEED, WeaponType.KNIFE);
+    var expectedAxe = new Weapon(AXE_NAME, DAMAGE, SPEED, CommonWeaponType.AXE);
+    var expectedStaff = new Weapon(STAFF_NAME, DAMAGE, SPEED, CommonWeaponType.STAFF);
+    var expectedSword = new Weapon(SWORD_NAME, DAMAGE, SPEED, CommonWeaponType.SWORD);
+    var expectedBow = new Weapon(BOW_NAME, DAMAGE, SPEED, CommonWeaponType.BOW);
+    var expectedKnife = new Weapon(KNIFE_NAME, DAMAGE, SPEED, CommonWeaponType.KNIFE);
 
     assertEquals(expectedAxe, testAxe);
     assertEquals(expectedAxe.hashCode(), testAxe.hashCode());

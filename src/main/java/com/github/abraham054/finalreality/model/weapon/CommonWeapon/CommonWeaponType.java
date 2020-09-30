@@ -1,4 +1,4 @@
-package com.github.abraham054.finalreality.model.weapon;
+package com.github.abraham054.finalreality.model.weapon.CommonWeapon;
 
 /**
  * Enumeration of all the weapon types.

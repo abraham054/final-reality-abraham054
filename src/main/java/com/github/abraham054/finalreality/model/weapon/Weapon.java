@@ -12,6 +12,7 @@ public class Weapon {
 
   private final String name;
   private final int weight;
+  private final int damage;
 
   /**
    * Creates a weapon
@@ -20,9 +21,10 @@ public class Weapon {
    * @param weight
    *     the weapon's weight
    */
-  public Weapon(final String name, final int weight) {
+  public Weapon(String name,int weight, int damage) {
     this.name = name;
     this.weight = weight;
+    this.damage = damage;
   }
 
   /**
@@ -30,6 +32,13 @@ public class Weapon {
    * */
   private String getName() {
     return name;
+  }
+
+  /**
+   * Returns the common weapon's damage
+   * */
+  public int getDamage(){
+    return damage;
   }
 
   /**
