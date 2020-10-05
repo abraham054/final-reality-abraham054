@@ -1,6 +1,9 @@
 package com.github.abraham054.finalreality.model.weapon.CommonWeapon;
 
+import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
+
+import java.util.Objects;
 
 public class CommonWeapon extends Weapon {
     private final CommonWeaponType type;
@@ -28,4 +31,21 @@ public class CommonWeapon extends Weapon {
         return type;
     }
 
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CommonWeapon)) {
+            return false;
+        }
+        final CommonWeapon weapon = (CommonWeapon) o;
+        return  getName().equals(weapon.getName()) &&
+                getWeight() == weapon.getWeight() &&
+                getDamage() == weapon.getDamage() &&
+                getType() == weapon.getType();
+    }
+
+    @Override
+    public int hashCode() { return Objects.hash(getName(), getWeight(), getDamage(), getType()); }
 }

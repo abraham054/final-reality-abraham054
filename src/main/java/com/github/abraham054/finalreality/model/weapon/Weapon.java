@@ -1,5 +1,7 @@
 package com.github.abraham054.finalreality.model.weapon;
 
+import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeaponType;
+
 import java.util.Objects;
 
 /**
@@ -8,7 +10,7 @@ import java.util.Objects;
  * @author Ignacio Slater Muñoz.
  * @author <Your name>
  */
-public class Weapon {
+public abstract class Weapon {
 
   private final String name;
   private final int weight;
@@ -30,7 +32,7 @@ public class Weapon {
   /**
    * Returns the weapon's name
    * */
-  private String getName() {
+  protected String getName() {
     return name;
   }
 
@@ -46,25 +48,5 @@ public class Weapon {
    * */
   public int getWeight() {
     return weight;
-  }
-
-  @Override
-  public boolean equals(final Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Weapon)) {
-      return false;
-    }
-    final Weapon weapon = (Weapon) o;
-    return getDamage() == weapon.getDamage() &&
-        getWeight() == weapon.getWeight() &&
-        getName().equals(weapon.getName()) &&
-        getType() == weapon.getType();
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(getName(), getDamage(), getWeight(), getType());
   }
 }
