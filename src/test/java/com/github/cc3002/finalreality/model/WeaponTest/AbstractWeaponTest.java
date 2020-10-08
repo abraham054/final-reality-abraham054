@@ -26,11 +26,11 @@ public abstract class AbstractWeaponTest implements IWeaponTest {
 
     @BeforeEach
     public void setUp(){
-        setTestedWeapon();
         setName();
         setWeight();
         setDamage();
         setType();
+        setTestedWeapon();
     }
 
     @Test
