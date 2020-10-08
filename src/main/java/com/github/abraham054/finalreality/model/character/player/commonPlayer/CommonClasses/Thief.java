@@ -2,7 +2,7 @@ package com.github.abraham054.finalreality.model.character.player.commonPlayer.C
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonPlayer;
-import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
 import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import com.github.abraham054.finalreality.model.weapon.*;
 import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
@@ -19,9 +19,8 @@ public class Thief extends CommonPlayer {
      * @param defense      the character's defense
      * @param healthPoints the character's health points
      */
-    protected Thief(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints) {
-        super(name, turnsQueue, defense, healthPoints);
-        this.commonClass = CommonPlayerClass.THIEF;
+    public Thief(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints) {
+        super(name, turnsQueue, defense, healthPoints,CommonPlayerClass.THIEF);
     }
 
     @Override

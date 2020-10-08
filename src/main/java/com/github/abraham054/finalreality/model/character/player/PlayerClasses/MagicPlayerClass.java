@@ -1,4 +1,4 @@
-package com.github.abraham054.finalreality.model.character.player.magicPlayer;
+package com.github.abraham054.finalreality.model.character.player.PlayerClasses;
 
 /**
  * Enumeration of the classes a player character may have.
@@ -6,6 +6,6 @@ package com.github.abraham054.finalreality.model.character.player.magicPlayer;
  * @author Ignacio Slater Muñoz.
  * @author <Your name>
  */
-public enum MagicPlayerClass {
+public enum MagicPlayerClass implements PlayerClasses{
   BLACK_MAGE, WHITE_MAGE
 }

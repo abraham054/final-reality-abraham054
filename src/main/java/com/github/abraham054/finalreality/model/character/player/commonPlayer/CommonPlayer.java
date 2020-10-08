@@ -2,13 +2,14 @@ package com.github.abraham054.finalreality.model.character.player.commonPlayer;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
 import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 
 
 public abstract class CommonPlayer extends PlayerCharacter {
-    protected CommonPlayerClass commonClass;
 
     /**
      * Creates a new common character.
@@ -18,15 +19,15 @@ public abstract class CommonPlayer extends PlayerCharacter {
      * @param defense       the character's defense
      * @param healthPoints  the character's health points
      */
-    protected CommonPlayer(@NotNull String name,
-                        @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints){
-        super(turnsQueue, name,defense,healthPoints);
+    protected CommonPlayer(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue,
+                           int defense, int healthPoints,CommonPlayerClass playerClass){
+        super(turnsQueue, name,defense,healthPoints,playerClass);
     }
 
     /**
      * Returns the class of the character.
      * */
-    public CommonPlayerClass getCharacterClass() { return this.commonClass; }
+    public PlayerClasses getCharacterClass() { return this.playerClass; }
 
     @Override
     public boolean equals(Object o) {

@@ -8,4 +8,5 @@ public interface ICharacterTest {
     void testName();
     void testDefense();
     void testHealthPoint();
+    void waitTurnTest();
 }

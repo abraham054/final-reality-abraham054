@@ -5,6 +5,8 @@ import com.github.abraham054.finalreality.model.character.ICharacter;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
+
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
 import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public abstract class PlayerCharacter extends AbstractCharacter {
   protected static Weapon equippedWeapon = null;
+  protected final PlayerClasses playerClass;
 
   /**
    * Creates a new character.
@@ -29,11 +32,19 @@ public abstract class PlayerCharacter extends AbstractCharacter {
    *     the character's defense
    * @param healthPoints
    *     the character's health points
+   * @param playerClass
+   *     the character's class
    */
   protected PlayerCharacter(@NotNull BlockingQueue<ICharacter> turnsQueue,
-                            @NotNull String name, int defense, int healthPoints) {
+                            @NotNull String name, int defense, int healthPoints,PlayerClasses playerClass) {
     super(turnsQueue, name,defense,healthPoints);
+    this.playerClass = playerClass;
   }
+
+  /**
+   * Returns the class of the character.
+   * */
+  public PlayerClasses getCharacterClass() { return this.playerClass; }
 
   /**
    * The character equips a non magic weapon

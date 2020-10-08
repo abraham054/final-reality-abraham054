@@ -1,8 +1,7 @@
 package com.github.cc3002.finalreality.model.character;
 
 import com.github.abraham054.finalreality.model.character.Enemy;
-import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -43,17 +42,24 @@ class EnemyTest extends AbstractCharacterTests {
     assertEquals(weight,enemy.getWeight());
     assertEquals(attackPoints,enemy.getAttackPoints());
   }
-  @BeforeEach
-  void setUp() {
-    basicSetUp();
-    testCharacters.add(new Enemy(ENEMY_NAME, 10,10,10,10, turns));
-  }
 
+  @Override
   @Test
-  void constructorTest() {
-    checkConstruction(new Enemy(ENEMY_NAME, 10,10,10,10, turns),
-        testCharacters.get(0),
-        new Enemy(ENEMY_NAME, 11,10,10,10, turns),
-        new PlayerCharacter(ENEMY_NAME, turns, MagicPlayer.THIEF));
+  public void waitTurnTest() {
+    Assertions.assertTrue(turns.isEmpty());
+    enemy.waitTurn();
+    try {
+      // Prueben disminuir este tiempo
+      Thread.sleep(900);  // <----
+      //
+      Assertions.assertEquals(0, turns.size());
+      // Prueben aumentar este tiempo
+      Thread.sleep(200);  // <----
+      //
+      Assertions.assertEquals(1, turns.size());
+      Assertions.assertEquals(enemy, turns.peek());
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 }

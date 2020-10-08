@@ -2,7 +2,7 @@ package com.github.abraham054.finalreality.model.character.player.magicPlayer.Ma
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
-import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
 import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import org.jetbrains.annotations.NotNull;
@@ -18,9 +18,9 @@ public class BlackMage extends MagicPlayer {
      * @param healthPoints the character's health points
      * @param mana         the character's mana
      */
-    public BlackMage(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints, int mana) {
-        super(name, turnsQueue, defense, healthPoints, mana);
-        this.magicClass = MagicPlayerClass.BLACK_MAGE;
+    public BlackMage(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue,
+                     int defense, int healthPoints, int mana) {
+        super(name, turnsQueue, defense, healthPoints, mana,MagicPlayerClass.BLACK_MAGE);
     }
 
     @Override
