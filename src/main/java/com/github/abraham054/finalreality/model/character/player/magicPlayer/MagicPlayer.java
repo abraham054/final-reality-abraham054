@@ -7,8 +7,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 
-public class MagicPlayer extends PlayerCharacter {
-    private final MagicPlayerClass magicClass;
+public abstract class MagicPlayer extends PlayerCharacter {
+    protected MagicPlayerClass magicClass;
     private static int mana;
 
     /**
@@ -22,16 +22,12 @@ public class MagicPlayer extends PlayerCharacter {
      *     the character's defense
      * @param healthPoints
      *     the character's health points
-     * @param magicClass
-     *     the character's magic class
      * @param mana
      *     the character's mana
      */
     public MagicPlayer(@NotNull String name,
-                       @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints,
-                       MagicPlayerClass magicClass, int mana){
+                       @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints, int mana){
         super(turnsQueue, name,defense,healthPoints);
-        this.magicClass = magicClass;
         MagicPlayer.mana = mana;
     }
 

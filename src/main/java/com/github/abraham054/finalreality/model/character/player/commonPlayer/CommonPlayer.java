@@ -7,28 +7,20 @@ import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 
 
-public class CommonPlayer extends PlayerCharacter {
-    private final CommonPlayerClass commonClass;
+public abstract class CommonPlayer extends PlayerCharacter {
+    protected CommonPlayerClass commonClass;
 
     /**
      * Creates a new common character.
      *
-     * @param name
-     *     the character's name
-     * @param turnsQueue
-     *     the queue with the characters waiting for their turn
-     * @param defense
-     *     the character's defense
-     * @param healthPoints
-     *     the character's health points
-     * @param commonClass
-     *     the character's not magic class
+     * @param name          the character's name
+     * @param turnsQueue    the queue with the characters waiting for their turn
+     * @param defense       the character's defense
+     * @param healthPoints  the character's health points
      */
     protected CommonPlayer(@NotNull String name,
-                        @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints,
-                        CommonPlayerClass commonClass){
+                        @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints){
         super(turnsQueue, name,defense,healthPoints);
-        this.commonClass = commonClass;
     }
 
     /**

@@ -38,7 +38,7 @@ public abstract class PlayerCharacter extends AbstractCharacter {
   /**
    * The character equips a non magic weapon
    * */
-  public void equipNormalWeapon(CommonWeapon weapon) {
+  public void equipWeapon(Weapon weapon) {
     equippedWeapon = weapon;
   }
 

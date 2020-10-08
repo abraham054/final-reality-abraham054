@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 public abstract class MagicWeaponTest extends AbstractWeaponTest {
 
+    int magicDamage = 15;
+
     @Override
     public void setName() { name = "Magic Weapon";}
 
@@ -20,11 +22,11 @@ public abstract class MagicWeaponTest extends AbstractWeaponTest {
 
     @Override
     public void setTestedWeapon() {
-        int magicDamage = 15;
         testedWeapon = new MagicWeapon(name,weight,damage, (MagicWeaponType) type, magicDamage);}
 
     @Test
     void testMagicDamage(){
-        assertEquals(15,testedWeapon.getMagicDamage());
+        MagicWeapon magicWeapon = new MagicWeapon(name,weight,damage,(MagicWeaponType) type, magicDamage);
+        assertEquals(15,magicWeapon.getMagicDamage());
     }
 }
