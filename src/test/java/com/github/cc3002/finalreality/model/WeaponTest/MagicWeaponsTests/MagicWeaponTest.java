@@ -3,7 +3,7 @@ package com.github.cc3002.finalreality.model.WeaponTest.MagicWeaponsTests;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponType.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import com.github.cc3002.finalreality.model.WeaponTest.AbstractWeaponTest;
 import org.junit.jupiter.api.Test;
 

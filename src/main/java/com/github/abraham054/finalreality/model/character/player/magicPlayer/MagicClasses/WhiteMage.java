@@ -1,5 +1,4 @@
 package com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicClasses;
-
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayerClass;

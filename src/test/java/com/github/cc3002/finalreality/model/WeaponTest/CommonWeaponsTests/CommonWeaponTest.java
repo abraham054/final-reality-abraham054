@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponType.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import com.github.cc3002.finalreality.model.WeaponTest.AbstractWeaponTest;
 
 abstract class CommonWeaponTest extends AbstractWeaponTest {

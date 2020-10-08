@@ -1,6 +1,6 @@
 package com.github.abraham054.finalreality.model.weapon;
 
-import com.github.abraham054.finalreality.model.weapon.WeaponType.WeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.WeaponType;
 
 /**
  * A class that holds all the information of a weapon.

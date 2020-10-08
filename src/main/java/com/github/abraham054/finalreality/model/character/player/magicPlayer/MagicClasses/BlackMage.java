@@ -4,9 +4,8 @@ import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayerClass;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponType.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.concurrent.BlockingQueue;
 
 public class BlackMage extends MagicPlayer {

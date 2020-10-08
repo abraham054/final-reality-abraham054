@@ -1,7 +1,7 @@
 package com.github.abraham054.finalreality.model.weapon.CommonWeapon;
 
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponType.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 
 import java.util.Objects;
 

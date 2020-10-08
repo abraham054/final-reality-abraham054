@@ -3,10 +3,9 @@ package com.github.abraham054.finalreality.model.character.player.commonPlayer.C
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonPlayer;
 import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonPlayerClass;
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponType.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import com.github.abraham054.finalreality.model.weapon.*;
-import com.github.abraham054.finalreality.model.weapon.WeaponType.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.BlockingQueue;
