@@ -4,12 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponType.CommonWeaponType;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CommonWeaponTest {
+class CommonWeaponTest extends AbstractWeaponTest{
 
   private static final String AXE_NAME = "Test Axe";
   private static final String SWORD_NAME = "Test Sword";
@@ -22,6 +22,28 @@ class CommonWeaponTest {
   private Weapon testSword;
   private Weapon testBow;
   private Weapon testKnife;
+
+  @Override
+  public void setName() {name = "Common weapon"; }
+
+  @Override
+  public void setWeight() { weight = 20; }
+
+  @Override
+  public void setDamage() { damage = 15; }
+
+  @Override
+  public void setType() { type = CommonWeaponType.SWORD;}
+
+  @Override
+  public void setTestedWeapon() { testedWeapon = new CommonWeapon(name,weight,damage, (CommonWeaponType) type); }
+
+
+
+
+
+
+
 
   @BeforeEach
   void setUp() {
@@ -47,4 +69,6 @@ class CommonWeaponTest {
     assertEquals(testKnife, expectedKnife);
     assertEquals(expectedKnife.hashCode(), testKnife.hashCode());
   }
+
+
 }

@@ -1,8 +1,6 @@
 package com.github.abraham054.finalreality.model.weapon;
 
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeaponType;
-
-import java.util.Objects;
+import com.github.abraham054.finalreality.model.weapon.WeaponType.WeaponType;
 
 /**
  * A class that holds all the information of a weapon.
@@ -32,7 +30,7 @@ public abstract class Weapon {
   /**
    * Returns the weapon's name
    * */
-  protected String getName() {
+  public String getName() {
     return name;
   }
 
@@ -49,4 +47,6 @@ public abstract class Weapon {
   public int getWeight() {
     return weight;
   }
+
+  public abstract WeaponType getType();
 }

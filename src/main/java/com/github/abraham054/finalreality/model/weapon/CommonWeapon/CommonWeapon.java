@@ -1,7 +1,7 @@
 package com.github.abraham054.finalreality.model.weapon.CommonWeapon;
 
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.weapon.WeaponType.CommonWeaponType;
 
 import java.util.Objects;
 
@@ -27,6 +27,7 @@ public class CommonWeapon extends Weapon {
     /**
      * Returns the common weapon's type
      * */
+    @Override
     public CommonWeaponType getType(){
         return type;
     }

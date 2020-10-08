@@ -13,14 +13,14 @@ class EnemyTest extends AbstractCharacterTest {
   @BeforeEach
   void setUp() {
     basicSetUp();
-    testCharacters.add(new Enemy(ENEMY_NAME, 10, turns));
+    testCharacters.add(new Enemy(ENEMY_NAME, 10,10,10,10, turns));
   }
 
   @Test
   void constructorTest() {
-    checkConstruction(new Enemy(ENEMY_NAME, 10, turns),
+    checkConstruction(new Enemy(ENEMY_NAME, 10,10,10,10, turns),
         testCharacters.get(0),
-        new Enemy(ENEMY_NAME, 11, turns),
+        new Enemy(ENEMY_NAME, 11,10,10,10, turns),
         new PlayerCharacter(ENEMY_NAME, turns, MagicPlayer.THIEF));
   }
 }

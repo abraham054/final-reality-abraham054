@@ -1,6 +1,7 @@
 package com.github.abraham054.finalreality.model.weapon.MagicWeapon;
 
 import com.github.abraham054.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.weapon.WeaponType.MagicWeaponType;
 
 import java.util.Objects;
 
@@ -37,6 +38,7 @@ public class MagicWeapon extends Weapon {
     /**
      * Returns the magic weapon's type
      * */
+    @Override
     public MagicWeaponType getType(){
         return type;
     }

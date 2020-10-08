@@ -1,4 +1,4 @@
-package com.github.abraham054.finalreality.model.weapon.CommonWeapon;
+package com.github.abraham054.finalreality.model.weapon.WeaponType;
 
 /**
  * Enumeration of all the weapon types.
@@ -6,6 +6,6 @@ package com.github.abraham054.finalreality.model.weapon.CommonWeapon;
  * @author Ignacio Slater Muñoz.
  * @author <Your name>
  */
-public enum CommonWeaponType {
+public enum CommonWeaponType implements WeaponType{
   SWORD, AXE, KNIFE, BOW
 }
