@@ -21,7 +21,7 @@ public abstract class Weapon {
    * @param weight
    *     the weapon's weight
    */
-  public Weapon(String name,int weight, int damage) {
+  protected Weapon(String name,int weight, int damage) {
     this.name = name;
     this.weight = weight;
     this.damage = damage;
