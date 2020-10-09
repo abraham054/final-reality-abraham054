@@ -27,6 +27,6 @@ public abstract class MagicWeaponTest extends AbstractWeaponTest {
     @Test
     void testMagicDamage(){
         MagicWeapon magicWeapon = new MagicWeapon(name,weight,damage,(MagicWeaponType) type, magicDamage);
-        assertEquals(15,magicWeapon.getMagicDamage());
+        assertEquals(magicDamage,magicWeapon.getMagicDamage());
     }
 }

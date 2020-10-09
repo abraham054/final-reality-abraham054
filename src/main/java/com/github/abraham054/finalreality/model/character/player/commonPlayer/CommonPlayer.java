@@ -24,11 +24,6 @@ public abstract class CommonPlayer extends PlayerCharacter {
         super(turnsQueue, name,defense,healthPoints,playerClass);
     }
 
-    /**
-     * Returns the class of the character.
-     * */
-    public PlayerClasses getCharacterClass() { return this.playerClass; }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -38,12 +33,12 @@ public abstract class CommonPlayer extends PlayerCharacter {
             return false;
         }
         final CommonPlayer that = (CommonPlayer) o;
-        return getCharacterClass() == that.getCharacterClass()
-                && getName().equals(that.getName());
+        return that.hashCode() == hashCode();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCharacterClass());
+        return Objects.hash(getCharacterClass(),getName());
     }
+
 }

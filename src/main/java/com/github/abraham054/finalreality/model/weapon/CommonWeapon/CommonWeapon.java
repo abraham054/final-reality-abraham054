@@ -41,10 +41,7 @@ public class CommonWeapon extends Weapon {
             return false;
         }
         final CommonWeapon weapon = (CommonWeapon) o;
-        return  getName().equals(weapon.getName()) &&
-                getWeight() == weapon.getWeight() &&
-                getDamage() == weapon.getDamage() &&
-                getType() == weapon.getType();
+        return  weapon.hashCode() == hashCode();
     }
 
     @Override

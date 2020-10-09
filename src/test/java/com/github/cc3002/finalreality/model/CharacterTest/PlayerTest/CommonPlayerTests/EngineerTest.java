@@ -1,21 +1,17 @@
 package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.CommonPlayerTests;
 
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
 import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonClasses.Engineer;
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import java.util.concurrent.LinkedBlockingQueue;
 
-public abstract class EngineerTest extends CommonPlayerTest{
+public class EngineerTest extends CommonPlayerTest{
     private Engineer inge;
-    private Weapon Axe;
-    private Weapon Bow;
-    private Weapon Sword;
+    private Engineer mario;
 
     @Override
     public void setName() {
@@ -24,31 +20,39 @@ public abstract class EngineerTest extends CommonPlayerTest{
 
     @Override
     public void setPlayer() {
+        turns = new LinkedBlockingQueue<>();
         testPlayer = new Engineer(name,turns,defense,healthPoints);
     }
 
-    @BeforeEach
-    void setUpEngineer(){
-        inge = new Engineer(name,turns,defense,healthPoints);
-    }
+    @Override
+    public void setClass() { playerClass = CommonPlayerClass.ENGINEER;}
 
     @BeforeEach
-    void setUpWeapons(){
-        Axe = new CommonWeapon("Axe",20,100, CommonWeaponType.AXE);
-        Bow = new CommonWeapon("Bow",5,60, CommonWeaponType.BOW);
-        Sword = new CommonWeapon("Sword",30,120, CommonWeaponType.SWORD);
+    void setUpEngineer(){
+        mario = new Engineer("Mario",turns,defense,healthPoints);
+        inge = new Engineer(name,turns,defense,healthPoints);
     }
 
     @Test
     @Override
     public void testWeapon() {
-        assertNull(PlayerCharacter.getEquippedWeapon());
-        inge.equipWeapon(Axe);
-        assertEquals(Axe,PlayerCharacter.getEquippedWeapon());
-        inge.equipWeapon(Bow);
-        assertEquals(Bow,PlayerCharacter.getEquippedWeapon());
-        inge.equipWeapon(Sword);
-        assertEquals(Bow,PlayerCharacter.getEquippedWeapon());
+        assertNull(testPlayer.getEquippedWeapon());
+        testPlayer.equipWeapon(Axe);
+        assertEquals(Axe,testPlayer.getEquippedWeapon());
+        testPlayer.equipWeapon(Bow);
+        assertEquals(Bow,testPlayer.getEquippedWeapon());
+        testPlayer.equipWeapon(Sword);
+        assertEquals(Bow,testPlayer.getEquippedWeapon());
+        waitTurnTest();
+    }
+
+    @Test
+    public void equals(){
+        assertEquals(inge,testPlayer);
+        assertTrue(inge.equals(testPlayer));
+        assertTrue(inge.equals(inge));
+        assertFalse(inge.equals(Axe));
+        assertFalse(inge.equals(mario));
     }
 
 }

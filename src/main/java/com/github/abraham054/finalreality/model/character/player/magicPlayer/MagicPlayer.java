@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 
 public abstract class MagicPlayer extends PlayerCharacter {
-    private static int mana;
+    private int mana;
 
     /**
      * Creates a new character.
@@ -24,20 +24,15 @@ public abstract class MagicPlayer extends PlayerCharacter {
     public MagicPlayer(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue,
                        int defense, int healthPoints, int mana,MagicPlayerClass playerClass){
         super(turnsQueue, name,defense,healthPoints,playerClass);
-        MagicPlayer.mana = mana;
+        this.mana = mana;
     }
 
     /**
      * Returns the character's mana
      *  */
-    public static int getMana() {
-        return mana;
+    public int getMana() {
+        return this.mana;
     }
-
-    /**
-     * Returns the class of the character.
-     * */
-    public PlayerClasses getCharacterClass() { return this.playerClass; }
 
     @Override
     public boolean equals(Object o) {
@@ -48,12 +43,11 @@ public abstract class MagicPlayer extends PlayerCharacter {
             return false;
         }
         final MagicPlayer that = (MagicPlayer) o;
-        return getCharacterClass() == that.getCharacterClass()
-                && getName().equals(that.getName());
+        return that.hashCode() == hashCode();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCharacterClass());
+        return Objects.hash(getCharacterClass(),getName());
     }
 }

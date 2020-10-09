@@ -1,20 +1,17 @@
 package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.MagicPlayerTests;
 
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicClasses.WhiteMage;
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
-import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
-public abstract class WhiteMageTest extends MagicPlayerTest {
+import java.util.concurrent.LinkedBlockingQueue;
+
+public class WhiteMageTest extends MagicPlayerTest {
     private WhiteMage gandalf;
-    private Weapon Staff;
+    private WhiteMage onion;
 
     @Override
     public void setName() {
@@ -25,18 +22,18 @@ public abstract class WhiteMageTest extends MagicPlayerTest {
     public void setMana() { mana = 180; }
 
     @Override
+    public void setClass() { playerClass = MagicPlayerClass.WHITE_MAGE; }
+
+    @Override
     public void setPlayer() {
+        turns = new LinkedBlockingQueue<>();
         testPlayer = new WhiteMage(name,turns,defense,healthPoints,mana);
     }
 
     @BeforeEach
-    void setUpWhiteMage(){
+    void setUpMage(){
+        onion = new WhiteMage("Onion",turns,defense,healthPoints,mana);
         gandalf = new WhiteMage(name,turns,defense,healthPoints,mana);
-    }
-
-    @BeforeEach
-    void setUpWeapons(){
-        Staff = new MagicWeapon("Staff",30,120, MagicWeaponType.STAFF,100);
     }
 
     @Test
@@ -47,9 +44,19 @@ public abstract class WhiteMageTest extends MagicPlayerTest {
     @Test
     @Override
     public void testWeapon() {
-        assertNull(PlayerCharacter.getEquippedWeapon());
-        gandalf.equipWeapon(Staff);
-        assertEquals(Staff,PlayerCharacter.getEquippedWeapon());
+        assertNull(gandalf.getEquippedWeapon());
+        testPlayer.equipWeapon(Staff);
+        assertEquals(Staff,testPlayer.getEquippedWeapon());
+        testPlayer.equipWeapon(Knife);
+        waitTurnTest();
+    }
+
+    @Test
+    public void equals(){
+        assertEquals(gandalf,testPlayer);
+        assertTrue(gandalf.equals(testPlayer));
+        assertFalse(gandalf.equals(Staff));
+        assertFalse(gandalf.equals(onion));
     }
 
 }

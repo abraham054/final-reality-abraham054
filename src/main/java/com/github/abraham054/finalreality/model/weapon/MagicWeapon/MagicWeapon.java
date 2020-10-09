@@ -52,11 +52,7 @@ public class MagicWeapon extends Weapon {
             return false;
         }
         final MagicWeapon weapon = (MagicWeapon) o;
-        return getName().equals(weapon.getName()) &&
-                getWeight() == weapon.getWeight() &&
-                getDamage() == weapon.getDamage() &&
-                getType() == weapon.getType() &&
-                getMagicDamage() == weapon.getMagicDamage();
+        return weapon.hashCode() == hashCode();
     }
 
     @Override

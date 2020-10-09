@@ -5,9 +5,7 @@ import com.github.abraham054.finalreality.model.character.ICharacter;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
-
 import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
  * @author <Your name>
  */
 public abstract class PlayerCharacter extends AbstractCharacter {
-  protected static Weapon equippedWeapon = null;
+  protected Weapon equippedWeapon = null;
   protected final PlayerClasses playerClass;
 
   /**
@@ -49,14 +47,12 @@ public abstract class PlayerCharacter extends AbstractCharacter {
   /**
    * The character equips a non magic weapon
    * */
-  public void equipWeapon(Weapon weapon) {
-    equippedWeapon = weapon;
-  }
+  public abstract void equipWeapon(Weapon weapon);
 
   /**
    * Returns the character's equipped weapon
    * */
-  public static Weapon getEquippedWeapon() { return PlayerCharacter.equippedWeapon; }
+  public Weapon getEquippedWeapon() { return this.equippedWeapon; }
 
   /**
    * Sets a scheduled executor to make this character (thread) wait for {@code speed / 10}

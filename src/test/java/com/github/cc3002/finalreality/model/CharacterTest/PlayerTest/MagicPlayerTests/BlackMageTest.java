@@ -1,23 +1,17 @@
 package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.MagicPlayerTests;
 
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicClasses.BlackMage;
-import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
-import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import java.util.concurrent.LinkedBlockingQueue;
 
-public abstract class BlackMageTest extends MagicPlayerTest {
+public class BlackMageTest extends MagicPlayerTest {
     private BlackMage negro;
-    private Weapon Knife;
-    private Weapon Staff;
+    private BlackMage will;
 
     @Override
     public void setName() {
@@ -25,39 +19,47 @@ public abstract class BlackMageTest extends MagicPlayerTest {
     }
 
     @Override
-    void setMana() { mana = 150; }
+    public void setMana() { mana = 150; }
+
+    @Override
+    public void setClass() { playerClass = MagicPlayerClass.BLACK_MAGE;}
 
     @Override
     public void setPlayer() {
+        turns = new LinkedBlockingQueue<>();
         testPlayer = new BlackMage(name,turns,defense,healthPoints,mana);
     }
 
     @BeforeEach
-    void setUpBlackMage(){
+    void setUpMage(){
+        will = new BlackMage("Will",turns,defense,healthPoints,mana);
         negro = new BlackMage(name,turns,defense,healthPoints,mana);
-    }
-
-    @BeforeEach
-    void setUpWeapons(){
-        Knife = new CommonWeapon("Bow",5,60, CommonWeaponType.KNIFE);
-        Staff = new MagicWeapon("Staff",30,120, MagicWeaponType.STAFF,100);
     }
 
     @Test
     public void testMana(){
-        assertEquals(mana, MagicPlayer.getMana());
+        assertEquals(mana, negro.getMana());
     }
 
     @Test
     @Override
     public void testWeapon() {
-        assertNull(PlayerCharacter.getEquippedWeapon());
-        negro.equipWeapon(Staff);
-        assertEquals(Staff,PlayerCharacter.getEquippedWeapon());
-        negro.equipWeapon(Knife);
-        assertEquals(Knife,PlayerCharacter.getEquippedWeapon());
+        assertNull(testPlayer.getEquippedWeapon());
+        testPlayer.equipWeapon(Staff);
+        assertEquals(Staff,testPlayer.getEquippedWeapon());
+        testPlayer.equipWeapon(Knife);
+        assertEquals(Knife,testPlayer.getEquippedWeapon());
+        testPlayer.equipWeapon(Axe);
+        waitTurnTest();
     }
 
-
+    @Test
+    public void equals(){
+        assertEquals(negro,testPlayer);
+        assertTrue(negro.equals(testPlayer));
+        assertTrue(negro.equals(negro));
+        assertFalse(negro.equals(Staff));
+        assertFalse(negro.equals(will));
+    }
 
 }

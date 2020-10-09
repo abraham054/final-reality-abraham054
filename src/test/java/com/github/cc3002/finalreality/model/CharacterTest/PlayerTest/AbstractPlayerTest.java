@@ -1,22 +1,25 @@
 package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
-import org.junit.jupiter.api.Assertions;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public abstract class AbstractPlayerTest implements IPlayerTest{
 
     protected PlayerCharacter testPlayer;
-    protected BlockingQueue<ICharacter> turns;
     protected String name;
     protected int defense;
     protected int healthPoints;
     protected PlayerClasses playerClass;
+    protected BlockingQueue<ICharacter> turns;
 
     public abstract void setName();
 
@@ -31,6 +34,7 @@ public abstract class AbstractPlayerTest implements IPlayerTest{
         setName();
         setDefense();
         setHealthPoints();
+        setClass();
         setPlayer();
     }
 
@@ -52,25 +56,23 @@ public abstract class AbstractPlayerTest implements IPlayerTest{
         assertEquals(playerClass,testPlayer.getCharacterClass());
     }
 
-    @Test
     @Override
     public void waitTurnTest() {
-        Assertions.assertTrue(turns.isEmpty());
+        assertTrue(turns.isEmpty());
         testPlayer.waitTurn();
         try {
             // Prueben disminuir este tiempo
             Thread.sleep(900);  // <----
             //
-            Assertions.assertEquals(0, turns.size());
+            assertEquals(0, turns.size());
             // Prueben aumentar este tiempo
-            Thread.sleep(200);  // <----
+            Thread.sleep(400);  // <----
             //
-            Assertions.assertEquals(1, turns.size());
-            Assertions.assertEquals(testPlayer, turns.peek());
+            assertEquals(1, turns.size());
+            assertEquals(testPlayer, turns.peek());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
 
 }

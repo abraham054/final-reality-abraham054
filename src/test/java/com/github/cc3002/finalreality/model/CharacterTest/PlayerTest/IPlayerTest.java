@@ -8,6 +8,7 @@ public interface IPlayerTest {
     void setDefense();
     void setHealthPoints();
     void setPlayer();
+    void setClass();
 
     void testName();
     void testDefense();
