@@ -28,13 +28,6 @@ public abstract class MagicPlayer extends PlayerCharacter {
     }
 
     /**
-     * The magic character equips a magic weapon
-     * */
-    public void equipMagicWeapon(MagicWeapon weapon) {
-        equippedWeapon = weapon;
-    }
-
-    /**
      * Returns the character's mana
      *  */
     public static int getMana() {

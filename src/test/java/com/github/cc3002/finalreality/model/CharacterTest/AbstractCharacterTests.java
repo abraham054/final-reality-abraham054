@@ -1,11 +1,13 @@
-package com.github.cc3002.finalreality.model.character;
+package com.github.cc3002.finalreality.model.CharacterTest;
 
 import com.github.abraham054.finalreality.model.character.AbstractCharacter;
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public abstract class AbstractCharacterTests implements ICharacterTest{
 
@@ -31,15 +33,15 @@ public abstract class AbstractCharacterTests implements ICharacterTest{
         setAbstractCharacter();
     }
 
-    @Override
     @Test
+    @Override
     public void testName() { assertEquals(name, testCharacter.getName());}
 
-    @Override
     @Test
+    @Override
     public void testDefense() { assertEquals(defense, testCharacter.getDefense());}
 
-    @Override
     @Test
+    @Override
     public void testHealthPoint() { assertEquals(healthPoints, testCharacter.getHealthPoints());}
 }

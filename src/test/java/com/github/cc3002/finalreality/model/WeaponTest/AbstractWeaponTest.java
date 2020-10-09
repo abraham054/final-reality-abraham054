@@ -4,7 +4,6 @@ import com.github.abraham054.finalreality.model.weapon.Weapon;
 import com.github.abraham054.finalreality.model.weapon.WeaponTypes.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public abstract class AbstractWeaponTest implements IWeaponTest {
@@ -35,9 +34,7 @@ public abstract class AbstractWeaponTest implements IWeaponTest {
 
     @Test
     @Override
-    public void testName(){
-        assertEquals(name,testedWeapon.getName());
-    }
+    public void testName(){ assertEquals(name,testedWeapon.getName()); }
 
     @Test
     @Override

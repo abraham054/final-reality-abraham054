@@ -5,6 +5,7 @@ import com.github.abraham054.finalreality.model.character.player.magicPlayer.Mag
 import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
 import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.BlockingQueue;
 
@@ -26,8 +27,9 @@ public class BlackMage extends MagicPlayer {
     @Override
     public void equipWeapon(Weapon weapon) {
         boolean isKnife = (weapon.getType() == CommonWeaponType.KNIFE);
+        boolean isStaff = (weapon.getType() == MagicWeaponType.STAFF);
 
-        if( isKnife ){
+        if( isKnife || isStaff ){
             equippedWeapon = weapon;
         }
     }

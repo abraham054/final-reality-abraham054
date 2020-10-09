@@ -1,23 +1,31 @@
-package com.github.cc3002.finalreality.model.character.PlayerTest;
+package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest;
 
+import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
-import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.cc3002.finalreality.model.character.AbstractCharacterTests;
 import org.junit.jupiter.api.Assertions;
+import java.util.concurrent.BlockingQueue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
-public abstract class AbstractPlayerTest extends AbstractCharacterTests implements IPlayerTest{
+public abstract class AbstractPlayerTest implements IPlayerTest{
 
-    protected PlayerClasses playerClass;
     protected PlayerCharacter testPlayer;
+    protected BlockingQueue<ICharacter> turns;
+    protected String name;
+    protected int defense;
+    protected int healthPoints;
+    protected PlayerClasses playerClass;
+
+    public abstract void setName();
+
+    public abstract void setDefense();
+
+    public abstract void setHealthPoints();
 
     public abstract void setPlayer();
 
-    @Override
     @BeforeEach
     public void setUp(){
         setName();
@@ -26,14 +34,26 @@ public abstract class AbstractPlayerTest extends AbstractCharacterTests implemen
         setPlayer();
     }
 
-    @Override
     @Test
+    @Override
+    public void testName() { assertEquals(name, testPlayer.getName());}
+
+    @Test
+    @Override
+    public void testDefense() { assertEquals(defense, testPlayer.getDefense());}
+
+    @Test
+    @Override
+    public void testHealthPoints() { assertEquals(healthPoints, testPlayer.getHealthPoints());}
+
+    @Test
+    @Override
     public void testClass() {
         assertEquals(playerClass,testPlayer.getCharacterClass());
     }
 
-    @Override
     @Test
+    @Override
     public void waitTurnTest() {
         Assertions.assertTrue(turns.isEmpty());
         testPlayer.waitTurn();
@@ -51,5 +71,6 @@ public abstract class AbstractPlayerTest extends AbstractCharacterTests implemen
             e.printStackTrace();
         }
     }
+
 
 }
