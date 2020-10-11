@@ -1,10 +1,17 @@
 ChangeLog
 =========
 
+Version 3.0
+-----------
+- (B.5) Implemented all the tests of the interaction between characters and weapons
+- (B.4) Added a class for every character class
+- (B.3) Both characters and weapon use heritage in the testing
+- (B.2) The characters test are working 
+- (B.1) The weapons tests are now working
+
 Version 2.0
 -----------
-Write your changes in here
-- (RC.1) the package model satisfies the SOLID principles
+- (RC.1) The package model satisfies the SOLID principles
 - (B.10) Created a magic and common  player class, both extend player character
 - (B.9) Created a magic and common weapon class, both extend weapon
 - (B.8) Added a bunch of methods to both player character and enemy
