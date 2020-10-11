@@ -22,16 +22,11 @@ public abstract class PlayerCharacter extends AbstractCharacter {
   /**
    * Creates a new character.
    *
-   * @param name
-   *     the character's name
-   * @param turnsQueue
-   *     the queue with the characters waiting for their turn
-   * @param defense
-   *     the character's defense
-   * @param healthPoints
-   *     the character's health points
-   * @param playerClass
-   *     the character's class
+   * @param name          the character's name
+   * @param turnsQueue    the queue with the characters waiting for their turn
+   * @param defense       the character's defense
+   * @param healthPoints  the character's health points
+   * @param playerClass   the character's class
    */
   protected PlayerCharacter(@NotNull BlockingQueue<ICharacter> turnsQueue,
                             @NotNull String name, int defense, int healthPoints,PlayerClasses playerClass) {
@@ -45,7 +40,7 @@ public abstract class PlayerCharacter extends AbstractCharacter {
   public PlayerClasses getCharacterClass() { return this.playerClass; }
 
   /**
-   * The character equips a non magic weapon
+   * The character equips a weapon
    * */
   public abstract void equipWeapon(Weapon weapon);
 

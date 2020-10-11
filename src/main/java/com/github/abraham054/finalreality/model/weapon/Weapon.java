@@ -15,11 +15,10 @@ public abstract class Weapon {
   private final int damage;
 
   /**
-   * Creates a weapon
-   * @param name
-   *     the weapon's name
-   * @param weight
-   *     the weapon's weight
+   * Creates a weapon.
+   * @param name    the weapon's name
+   * @param weight  the weapon's weight
+   * @param damage  the weapon's damage
    */
   protected Weapon(String name,int weight, int damage) {
     this.name = name;

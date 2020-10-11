@@ -1,10 +1,9 @@
 package com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicClasses;
+
 import com.github.abraham054.finalreality.model.character.ICharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
 import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import org.jetbrains.annotations.NotNull;
 

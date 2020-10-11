@@ -10,12 +10,12 @@ import org.junit.jupiter.api.Test;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class BlackMageTest extends MagicPlayerTest {
-    private BlackMage negro;
-    private BlackMage will;
+    private BlackMage oscuro;
+    private BlackMage guldan;
 
     @Override
     public void setName() {
-        name = "Negro";
+        name = "Mago oscuro";
     }
 
     @Override
@@ -32,13 +32,13 @@ public class BlackMageTest extends MagicPlayerTest {
 
     @BeforeEach
     void setUpMage(){
-        will = new BlackMage("Will",turns,defense,healthPoints,mana);
-        negro = new BlackMage(name,turns,defense,healthPoints,mana);
+        guldan = new BlackMage("Gul'dan",turns,defense,healthPoints,mana);
+        oscuro = new BlackMage(name,turns,defense,healthPoints,mana);
     }
 
     @Test
     public void testMana(){
-        assertEquals(mana, negro.getMana());
+        assertEquals(mana, oscuro.getMana());
     }
 
     @Test
@@ -55,11 +55,11 @@ public class BlackMageTest extends MagicPlayerTest {
 
     @Test
     public void equals(){
-        assertEquals(negro,testPlayer);
-        assertTrue(negro.equals(testPlayer));
-        assertTrue(negro.equals(negro));
-        assertFalse(negro.equals(Staff));
-        assertFalse(negro.equals(will));
+        assertEquals(oscuro,testPlayer);
+        assertTrue(oscuro.equals(testPlayer));
+        assertTrue(oscuro.equals(oscuro));
+        assertFalse(oscuro.equals(Staff));
+        assertFalse(oscuro.equals(guldan));
     }
 
 }

@@ -11,7 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class EngineerTest extends CommonPlayerTest{
     private Engineer inge;
-    private Engineer mario;
+    private Engineer titan;
 
     @Override
     public void setName() {
@@ -29,7 +29,7 @@ public class EngineerTest extends CommonPlayerTest{
 
     @BeforeEach
     void setUpEngineer(){
-        mario = new Engineer("Mario",turns,defense,healthPoints);
+        titan = new Engineer("Titan",turns,defense,healthPoints);
         inge = new Engineer(name,turns,defense,healthPoints);
     }
 
@@ -52,7 +52,7 @@ public class EngineerTest extends CommonPlayerTest{
         assertTrue(inge.equals(testPlayer));
         assertTrue(inge.equals(inge));
         assertFalse(inge.equals(Axe));
-        assertFalse(inge.equals(mario));
+        assertFalse(inge.equals(titan));
     }
 
 }

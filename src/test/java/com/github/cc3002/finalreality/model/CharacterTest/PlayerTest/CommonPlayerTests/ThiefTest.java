@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class ThiefTest extends CommonPlayerTest{
-    private Thief choro;
+    private Thief ladron;
 
     @Override
-    public void setName() { name = "Choro";}
+    public void setName() { name = "Ladron";}
 
     @Override
     public void setPlayer() {
@@ -25,7 +25,7 @@ public class ThiefTest extends CommonPlayerTest{
     public void setClass() { playerClass = CommonPlayerClass.THIEF; }
 
     @BeforeEach
-    void setUpThief(){ choro = new Thief(name,turns,defense,healthPoints); }
+    void setUpThief(){ ladron = new Thief(name,turns,defense,healthPoints); }
 
     @Test
     @Override
@@ -44,9 +44,9 @@ public class ThiefTest extends CommonPlayerTest{
 
     @Test
     public void equals(){
-        assertEquals(choro,testPlayer);
-        assertTrue(choro.equals(testPlayer));
-        assertFalse(choro.equals(Sword));
+        assertEquals(ladron,testPlayer);
+        assertTrue(ladron.equals(testPlayer));
+        assertFalse(ladron.equals(Sword));
     }
 
 }

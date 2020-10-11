@@ -2,7 +2,6 @@ package com.github.abraham054.finalreality.model.character;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
-
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -21,14 +20,11 @@ public abstract class AbstractCharacter implements ICharacter {
 
   /**
    * Creates a new abstract character.
-   * @param turnsQueue
-   *     the queue with the abstract characters waiting for their turn
-   * @param name
-   *     the name of the abstract character
-   * @param defense
-   *     the defense of the abstract character
-   * @param healthPoints
-   *     the health points of the abstract character
+   *
+   * @param turnsQueue    the queue with the abstract characters waiting for their turn
+   * @param name          the name of the abstract character
+   * @param defense       the defense of the abstract character
+   * @param healthPoints  the health points of the abstract character
    * */
   protected AbstractCharacter(@NotNull BlockingQueue<ICharacter> turnsQueue,
       @NotNull String name, int defense, int healthPoints) {

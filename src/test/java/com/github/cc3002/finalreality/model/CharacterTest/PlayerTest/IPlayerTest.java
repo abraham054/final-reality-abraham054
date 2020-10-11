@@ -1,7 +1,5 @@
 package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest;
 
-import com.github.abraham054.finalreality.model.weapon.Weapon;
-
 public interface IPlayerTest {
 
     void setName();

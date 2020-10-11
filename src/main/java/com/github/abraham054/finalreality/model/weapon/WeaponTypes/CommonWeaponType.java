@@ -1,7 +1,7 @@
 package com.github.abraham054.finalreality.model.weapon.WeaponTypes;
 
 /**
- * Enumeration of all the weapon types.
+ * Enumeration of all the common weapon types.
  *
  * @author Ignacio Slater Muñoz.
  * @author <Your name>

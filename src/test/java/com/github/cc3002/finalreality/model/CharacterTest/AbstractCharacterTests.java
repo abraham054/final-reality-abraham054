@@ -5,7 +5,6 @@ import com.github.abraham054.finalreality.model.character.ICharacter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 

@@ -19,19 +19,12 @@ public class Enemy extends AbstractCharacter {
 
   /**
    * Creates a new enemy.
-   *
-   * @param name
-   *     the enemy's name
-   * @param weight
-   *     the enemy's weight
-   * @param defense
-   *     the enemy's defense
-   * @param attackPoints
-   *     the enemy's attack points
-   * @param healthPoints
-   *     the enemy's health points
-   * @param turnsQueue
-   *     the queue with the enemy waiting for their turn
+   * @param name          the enemy's name
+   * @param weight        the enemy's weight
+   * @param defense       the enemy's defense
+   * @param attackPoints  the enemy's attack points
+   * @param healthPoints  the enemy's health points
+   * @param turnsQueue    the queue with the enemy waiting for their turn
    */
   public Enemy(@NotNull final String name, final int weight,final int defense,final int attackPoints,
       int healthPoints,
@@ -52,7 +45,7 @@ public class Enemy extends AbstractCharacter {
   public int getAttackPoints() { return attackPoints; }
 
   /**
-   * Sets a scheduled executor to make this enemy (thread) wait for {@code speed / 10}
+   * Sets a scheduled executor to make this enemy (thread) wait for {@code weight / 10}
    * seconds before adding the enemy to the queue.
    */
   @Override
