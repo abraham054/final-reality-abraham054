@@ -15,7 +15,7 @@ public abstract class AbstractCharacter implements ICharacter {
   protected  final BlockingQueue<ICharacter> turnsQueue;
   protected ScheduledExecutorService scheduledExecutor;
   protected final String name;
-  private static int healthPoints;
+  protected int healthPoints;
   private final int defense;
 
   /**
@@ -31,7 +31,7 @@ public abstract class AbstractCharacter implements ICharacter {
     this.turnsQueue = turnsQueue;
     this.name = name;
     this.defense = defense;
-    AbstractCharacter.healthPoints = healthPoints;
+    this.healthPoints = healthPoints;
   }
 
   /**
@@ -41,6 +41,19 @@ public abstract class AbstractCharacter implements ICharacter {
     turnsQueue.add(this);
     scheduledExecutor.shutdown();
   }
+
+  /**
+   * The character receives damage
+   * */
+  public void receiveDamage(int damage){
+    healthPoints -= damage - defense;
+    if (healthPoints < 0){ healthPoints = 0; }
+  }
+
+  /**
+   * Attacks an objective character
+   * */
+  protected abstract void attack(AbstractCharacter character);
 
   /**
    * Returns the health points of the abstract character.

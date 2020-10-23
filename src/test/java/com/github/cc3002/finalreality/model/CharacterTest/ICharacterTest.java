@@ -1,4 +1,4 @@
-package com.github.cc3002.finalreality.model.CharacterTest;
+package com.github.cc3002.finalreality.model.characterTest;
 
 public interface ICharacterTest {
     void setName();

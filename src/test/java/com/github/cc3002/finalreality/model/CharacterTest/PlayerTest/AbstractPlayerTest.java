@@ -1,10 +1,10 @@
-package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest;
+package com.github.cc3002.finalreality.model.characterTest.playerTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
+import com.github.abraham054.finalreality.model.character.player.playerClasses.PlayerClasses;
 import java.util.concurrent.BlockingQueue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,10 @@
-package com.github.cc3002.finalreality.model.WeaponTest.MagicWeaponsTests;
+package com.github.cc3002.finalreality.model.weaponTest.magicWeaponsTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
-import com.github.cc3002.finalreality.model.WeaponTest.AbstractWeaponTest;
+import com.github.abraham054.finalreality.model.weapon.magicWeapon.MagicWeapon;
+import com.github.abraham054.finalreality.model.weapon.weaponTypes.MagicWeaponType;
+import com.github.cc3002.finalreality.model.weaponTest.AbstractWeaponTest;
 import org.junit.jupiter.api.Test;
 
 public abstract class MagicWeaponTest extends AbstractWeaponTest {

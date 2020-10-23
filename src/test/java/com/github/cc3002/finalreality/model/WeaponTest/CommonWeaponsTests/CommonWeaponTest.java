@@ -1,8 +1,8 @@
-package com.github.cc3002.finalreality.model.WeaponTest.CommonWeaponsTests;
+package com.github.cc3002.finalreality.model.weaponTest.commonWeaponsTests;
 
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
-import com.github.cc3002.finalreality.model.WeaponTest.AbstractWeaponTest;
+import com.github.abraham054.finalreality.model.weapon.commonWeapon.CommonWeapon;
+import com.github.abraham054.finalreality.model.weapon.weaponTypes.CommonWeaponType;
+import com.github.cc3002.finalreality.model.weaponTest.AbstractWeaponTest;
 
 abstract class CommonWeaponTest extends AbstractWeaponTest {
 

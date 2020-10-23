@@ -1,9 +1,9 @@
-package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.CommonPlayerTests;
+package com.github.cc3002.finalreality.model.characterTest.playerTest.commonPlayerTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
-import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonClasses.Engineer;
+import com.github.abraham054.finalreality.model.character.player.playerClasses.CommonPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.commonPlayer.commonClasses.Engineer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +31,7 @@ public class EngineerTest extends CommonPlayerTest{
     void setUpEngineer(){
         titan = new Engineer("Titan",turns,defense,healthPoints);
         inge = new Engineer(name,turns,defense,healthPoints);
+        dead = new Engineer(name,turns,defense,0);
     }
 
     @Test
@@ -44,6 +45,7 @@ public class EngineerTest extends CommonPlayerTest{
         testPlayer.equipWeapon(Sword);
         assertEquals(Bow,testPlayer.getEquippedWeapon());
         waitTurnTest();
+        dead.equipWeapon(Axe);
     }
 
     @Test

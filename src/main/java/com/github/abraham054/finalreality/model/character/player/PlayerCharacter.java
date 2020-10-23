@@ -5,7 +5,7 @@ import com.github.abraham054.finalreality.model.character.ICharacter;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
+import com.github.abraham054.finalreality.model.character.player.playerClasses.PlayerClasses;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,12 +42,32 @@ public abstract class PlayerCharacter extends AbstractCharacter {
   /**
    * The character equips a weapon
    * */
-  public abstract void equipWeapon(Weapon weapon);
+  public void equipWeapon(Weapon weapon){
+    if(correctWeapon(weapon)){
+      equippedWeapon = weapon;
+    }
+  }
+
+  /**
+   * Returns true if the character can equip the weapon
+   * */
+  protected abstract boolean correctWeapon(Weapon weapon);
 
   /**
    * Returns the character's equipped weapon
    * */
   public Weapon getEquippedWeapon() { return this.equippedWeapon; }
+
+  /**
+   * Attacks an objective character
+   * */
+  @Override
+  public void attack(AbstractCharacter character){
+    if(healthPoints > 0 && equippedWeapon != null) {
+      int damage = getEquippedWeapon().getDamage();
+      character.receiveDamage(damage);
+    }
+  }
 
   /**
    * Sets a scheduled executor to make this character (thread) wait for {@code speed / 10}

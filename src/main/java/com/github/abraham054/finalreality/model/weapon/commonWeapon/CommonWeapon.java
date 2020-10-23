@@ -1,7 +1,7 @@
-package com.github.abraham054.finalreality.model.weapon.CommonWeapon;
+package com.github.abraham054.finalreality.model.Weapon.CommonWeapon;
 
-import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
+import com.github.abraham054.finalreality.model.Weapon.Weapon;
+import com.github.abraham054.finalreality.model.Weapon.WeaponTypes.CommonWeaponType;
 import java.util.Objects;
 
 public class CommonWeapon extends Weapon {

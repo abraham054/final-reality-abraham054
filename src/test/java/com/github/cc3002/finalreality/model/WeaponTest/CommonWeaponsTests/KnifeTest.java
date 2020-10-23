@@ -1,6 +1,6 @@
-package com.github.cc3002.finalreality.model.WeaponTest.CommonWeaponsTests;
+package com.github.cc3002.finalreality.model.weaponTest.commonWeaponsTests;
 
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.weaponTypes.CommonWeaponType;
 
 public class KnifeTest extends CommonWeaponTest{
 

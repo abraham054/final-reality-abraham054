@@ -1,9 +1,9 @@
-package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.MagicPlayerTests;
+package com.github.cc3002.finalreality.model.characterTest.playerTest.magicPlayerTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
-import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicClasses.BlackMage;
+import com.github.abraham054.finalreality.model.character.player.playerClasses.MagicPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.magicPlayer.magicClasses.BlackMage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +34,7 @@ public class BlackMageTest extends MagicPlayerTest {
     void setUpMage(){
         guldan = new BlackMage("Gul'dan",turns,defense,healthPoints,mana);
         oscuro = new BlackMage(name,turns,defense,healthPoints,mana);
+        dead = new BlackMage(name,turns,defense,0,mana);
     }
 
     @Test
@@ -51,6 +52,7 @@ public class BlackMageTest extends MagicPlayerTest {
         assertEquals(Knife,testPlayer.getEquippedWeapon());
         testPlayer.equipWeapon(Axe);
         waitTurnTest();
+        dead.equipWeapon(Staff);
     }
 
     @Test

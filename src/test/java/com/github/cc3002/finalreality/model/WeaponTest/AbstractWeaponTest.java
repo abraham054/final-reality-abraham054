@@ -1,7 +1,7 @@
-package com.github.cc3002.finalreality.model.WeaponTest;
+package com.github.cc3002.finalreality.model.weaponTest;
 
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.WeaponType;
+import com.github.abraham054.finalreality.model.weapon.weaponTypes.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

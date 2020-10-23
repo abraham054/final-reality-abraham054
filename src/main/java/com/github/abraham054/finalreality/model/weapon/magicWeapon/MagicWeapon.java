@@ -1,7 +1,7 @@
-package com.github.abraham054.finalreality.model.weapon.MagicWeapon;
+package com.github.abraham054.finalreality.model.Weapon.MagicWeapon;
 
-import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.Weapon.Weapon;
+import com.github.abraham054.finalreality.model.Weapon.WeaponTypes.MagicWeaponType;
 import java.util.Objects;
 
 public class MagicWeapon extends Weapon {
