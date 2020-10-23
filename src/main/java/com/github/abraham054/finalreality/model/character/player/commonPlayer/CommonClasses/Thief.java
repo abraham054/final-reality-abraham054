@@ -23,15 +23,15 @@ public class Thief extends CommonPlayer {
         super(name, turnsQueue, defense, healthPoints,CommonPlayerClass.THIEF);
     }
 
+    /**
+     * Returns true if the character can equip the weapon
+     * */
     @Override
-    public void equipWeapon(Weapon weapon) {
+    public boolean correctWeapon(Weapon weapon) {
         boolean isSword = (weapon.getType() == CommonWeaponType.SWORD);
         boolean isBow = (weapon.getType() == CommonWeaponType.BOW);
         boolean isStaff = (weapon.getType() == MagicWeaponType.STAFF);
-
-        if( isSword || isBow || isStaff ){
-            equippedWeapon = weapon;
-        }
+        return (isSword || isBow || isStaff) && this.getHealthPoints() > 0;
     }
 
 }

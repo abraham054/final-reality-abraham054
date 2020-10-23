@@ -34,6 +34,7 @@ public class WhiteMageTest extends MagicPlayerTest {
     void setUpMage(){
         onion = new WhiteMage("Onion",turns,defense,healthPoints,mana);
         gandalf = new WhiteMage(name,turns,defense,healthPoints,mana);
+        dead = new WhiteMage(name,turns,defense,0,mana);
     }
 
     @Test
@@ -49,6 +50,7 @@ public class WhiteMageTest extends MagicPlayerTest {
         assertEquals(Staff,testPlayer.getEquippedWeapon());
         testPlayer.equipWeapon(Knife);
         waitTurnTest();
+        dead.equipWeapon(Staff);
     }
 
     @Test

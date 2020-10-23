@@ -24,13 +24,13 @@ public class BlackMage extends MagicPlayer {
         super(name, turnsQueue, defense, healthPoints, mana,MagicPlayerClass.BLACK_MAGE);
     }
 
+    /**
+     * Returns true if the character can equip the weapon
+     * */
     @Override
-    public void equipWeapon(Weapon weapon) {
+    public boolean correctWeapon(Weapon weapon) {
         boolean isKnife = (weapon.getType() == CommonWeaponType.KNIFE);
         boolean isStaff = (weapon.getType() == MagicWeaponType.STAFF);
-
-        if( isKnife || isStaff ){
-            equippedWeapon = weapon;
-        }
+        return (isKnife || isStaff) && this.getHealthPoints() > 0;
     }
 }

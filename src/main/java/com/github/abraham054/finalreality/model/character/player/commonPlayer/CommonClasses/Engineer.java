@@ -23,13 +23,13 @@ public class Engineer extends CommonPlayer {
         super(name, turnsQueue, defense, healthPoints,CommonPlayerClass.ENGINEER);
     }
 
+    /**
+     * Returns true if the character can equip the weapon
+     * */
     @Override
-    public void equipWeapon(Weapon weapon) {
+    public boolean correctWeapon(Weapon weapon) {
         boolean isAxe = (weapon.getType() == CommonWeaponType.AXE);
         boolean isBow = (weapon.getType() == CommonWeaponType.BOW);
-
-        if(isAxe || isBow){
-            equippedWeapon = weapon;
-        }
+        return (isAxe || isBow) && this.getHealthPoints() > 0;
     }
 }

@@ -1,5 +1,6 @@
 package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.CommonPlayerTests;
 
+import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonPlayer;
 import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
 import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
@@ -14,6 +15,7 @@ public abstract class CommonPlayerTest extends AbstractPlayerTest {
     protected Weapon Sword;
     protected Weapon Knife;
     protected Weapon Staff;
+    protected CommonPlayer dead;
 
     @Override
     public void setDefense() {

@@ -45,6 +45,17 @@ public class Enemy extends AbstractCharacter {
   public int getAttackPoints() { return attackPoints; }
 
   /**
+   * Attacks an objective character
+   * */
+  @Override
+  public void attack(AbstractCharacter character){
+    if(healthPoints > 0 ) {
+      int damage = getAttackPoints();
+      character.receiveDamage(damage);
+    }
+  }
+
+  /**
    * Sets a scheduled executor to make this enemy (thread) wait for {@code weight / 10}
    * seconds before adding the enemy to the queue.
    */

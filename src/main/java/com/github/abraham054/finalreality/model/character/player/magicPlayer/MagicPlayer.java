@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 
 public abstract class MagicPlayer extends PlayerCharacter {
-    private int mana;
+    private final int mana;
 
     /**
      * Creates a new character.

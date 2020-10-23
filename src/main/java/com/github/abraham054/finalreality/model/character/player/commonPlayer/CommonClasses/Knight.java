@@ -22,14 +22,14 @@ public class Knight extends CommonPlayer {
         super(name, turnsQueue, defense, healthPoints,CommonPlayerClass.KNIGHT);
     }
 
+    /**
+     * Returns true if the character can equip the weapon
+     * */
     @Override
-    public void equipWeapon(Weapon weapon) {
+    public boolean correctWeapon(Weapon weapon) {
         boolean isSword = (weapon.getType() == CommonWeaponType.SWORD);
         boolean isAxe = (weapon.getType() == CommonWeaponType.AXE);
         boolean isKnife = (weapon.getType() == CommonWeaponType.KNIFE);
-
-        if(isAxe || isSword || isKnife){
-            equippedWeapon = weapon;
-        }
+        return (isAxe || isSword || isKnife) && this.getHealthPoints() > 0;
     }
 }

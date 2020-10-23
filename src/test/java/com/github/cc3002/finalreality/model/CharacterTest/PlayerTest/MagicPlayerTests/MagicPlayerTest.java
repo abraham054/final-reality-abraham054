@@ -1,5 +1,6 @@
 package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.MagicPlayerTests;
 
+import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
 import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
 import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
@@ -12,6 +13,7 @@ public abstract class MagicPlayerTest extends AbstractPlayerTest {
     protected Weapon Staff;
     protected Weapon Knife;
     protected Weapon Axe;
+    protected MagicPlayer dead;
     protected int mana;
 
     abstract void setMana();

@@ -34,6 +34,7 @@ public class BlackMageTest extends MagicPlayerTest {
     void setUpMage(){
         guldan = new BlackMage("Gul'dan",turns,defense,healthPoints,mana);
         oscuro = new BlackMage(name,turns,defense,healthPoints,mana);
+        dead = new BlackMage(name,turns,defense,0,mana);
     }
 
     @Test
@@ -51,6 +52,7 @@ public class BlackMageTest extends MagicPlayerTest {
         assertEquals(Knife,testPlayer.getEquippedWeapon());
         testPlayer.equipWeapon(Axe);
         waitTurnTest();
+        dead.equipWeapon(Staff);
     }
 
     @Test
