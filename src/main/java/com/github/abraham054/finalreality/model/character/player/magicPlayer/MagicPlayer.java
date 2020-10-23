@@ -2,13 +2,13 @@ package com.github.abraham054.finalreality.model.character.player.magicPlayer;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.playerClasses.MagicPlayerClass;
 import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 
 public abstract class MagicPlayer extends PlayerCharacter {
-    private int mana;
+    private final int mana;
 
     /**
      * Creates a new character.

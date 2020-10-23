@@ -1,6 +1,14 @@
 ChangeLog
 =========
 
+Version 4.0
+-----------
+- (B.5) 100% branch coverage in testing
+- (B.4) Implemented a combat interface, heritage reduced the size of the tests
+- (B.3) Light changes to the combat tests, making them expandable according to the solid principle
+- (B.2) Files names got changed
+- (B.1) Implemented the combat tests from the enemy and the character
+
 Version 3.0
 -----------
 - (B.5) Implemented all the tests of the interaction between characters and weapons
