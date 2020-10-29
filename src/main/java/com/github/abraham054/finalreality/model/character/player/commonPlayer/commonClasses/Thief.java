@@ -5,11 +5,12 @@ import com.github.abraham054.finalreality.model.character.player.commonPlayer.Co
 import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
 import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import com.github.abraham054.finalreality.model.weapon.*;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.BlockingQueue;
 
-
-public class Knight extends CommonPlayer {
+public class Thief extends CommonPlayer {
     /**
      * Creates a new common character.
      *
@@ -18,18 +19,19 @@ public class Knight extends CommonPlayer {
      * @param defense      the character's defense
      * @param healthPoints the character's health points
      */
-    public Knight(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints) {
-        super(name, turnsQueue, defense, healthPoints,CommonPlayerClass.KNIGHT);
+    public Thief(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue, int defense, int healthPoints) {
+        super(name, turnsQueue, defense, healthPoints,CommonPlayerClass.THIEF);
     }
 
+    /**
+     * Returns true if the character can equip the weapon
+     * */
     @Override
-    public void equipWeapon(Weapon weapon) {
+    public boolean correctWeapon(Weapon weapon) {
         boolean isSword = (weapon.getType() == CommonWeaponType.SWORD);
-        boolean isAxe = (weapon.getType() == CommonWeaponType.AXE);
-        boolean isKnife = (weapon.getType() == CommonWeaponType.KNIFE);
-
-        if(isAxe || isSword || isKnife){
-            equippedWeapon = weapon;
-        }
+        boolean isBow = (weapon.getType() == CommonWeaponType.BOW);
+        boolean isStaff = (weapon.getType() == MagicWeaponType.STAFF);
+        return (isSword || isBow || isStaff) && this.getHealthPoints() > 0;
     }
+
 }

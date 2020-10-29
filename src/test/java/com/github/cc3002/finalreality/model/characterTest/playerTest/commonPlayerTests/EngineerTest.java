@@ -31,6 +31,7 @@ public class EngineerTest extends CommonPlayerTest{
     void setUpEngineer(){
         titan = new Engineer("Titan",turns,defense,healthPoints);
         inge = new Engineer(name,turns,defense,healthPoints);
+        dead = new Engineer(name,turns,defense,0);
     }
 
     @Test
@@ -44,6 +45,7 @@ public class EngineerTest extends CommonPlayerTest{
         testPlayer.equipWeapon(Sword);
         assertEquals(Bow,testPlayer.getEquippedWeapon());
         waitTurnTest();
+        dead.equipWeapon(Axe);
     }
 
     @Test

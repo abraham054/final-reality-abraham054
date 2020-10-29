@@ -24,12 +24,12 @@ public class WhiteMage extends MagicPlayer {
         super(name, turnsQueue, defense, healthPoints, mana,MagicPlayerClass.WHITE_MAGE);
     }
 
+    /**
+     * Returns true if the character can equip the weapon
+     * */
     @Override
-    public void equipWeapon(Weapon weapon) {
+    public boolean correctWeapon(Weapon weapon) {
         boolean isStaff = (weapon.getType() == MagicWeaponType.STAFF);
-
-        if( isStaff ){
-            equippedWeapon = weapon;
-        }
+        return isStaff && this.getHealthPoints() > 0;
     }
 }

@@ -1,5 +1,6 @@
-package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.CommonPlayerTests;
+package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.MagicPlayerTests;
 
+import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
 import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
 import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
@@ -8,30 +9,30 @@ import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponTy
 import com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.AbstractPlayerTest;
 import org.junit.jupiter.api.BeforeEach;
 
-public abstract class CommonPlayerTest extends AbstractPlayerTest {
-    protected Weapon Axe;
-    protected Weapon Bow;
-    protected Weapon Sword;
-    protected Weapon Knife;
+public abstract class MagicPlayerTest extends AbstractPlayerTest {
     protected Weapon Staff;
+    protected Weapon Knife;
+    protected Weapon Axe;
+    protected MagicPlayer dead;
+    protected int mana;
+
+    abstract void setMana();
 
     @Override
     public void setDefense() {
-        defense = 25;
+        defense = 10;
     }
 
     @Override
     public void setHealthPoints() {
-        healthPoints = 100;
+        healthPoints = 70;
     }
 
     @BeforeEach
     void setUpWeapons(){
+        Knife = new CommonWeapon("Bow",15,60, CommonWeaponType.KNIFE);
+        Staff = new MagicWeapon("Staff",17,120, MagicWeaponType.STAFF,100);
         Axe = new CommonWeapon("Axe",20,100, CommonWeaponType.AXE);
-        Bow = new CommonWeapon("Bow",15,60, CommonWeaponType.BOW);
-        Sword = new CommonWeapon("Sword",30,120, CommonWeaponType.SWORD);
-        Knife = new CommonWeapon("Knife",15,80, CommonWeaponType.KNIFE);
-        Staff = new MagicWeapon("Staff",10,30, MagicWeaponType.STAFF,100);
     }
 
 }

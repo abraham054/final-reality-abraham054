@@ -25,7 +25,10 @@ public class ThiefTest extends CommonPlayerTest{
     public void setClass() { playerClass = CommonPlayerClass.THIEF; }
 
     @BeforeEach
-    void setUpThief(){ ladron = new Thief(name,turns,defense,healthPoints); }
+    void setUpThief(){
+        ladron = new Thief(name,turns,defense,healthPoints);
+        dead = new Thief(name,turns,defense,0);
+    }
 
     @Test
     @Override
@@ -40,6 +43,7 @@ public class ThiefTest extends CommonPlayerTest{
         testPlayer.equipWeapon(Knife);
         assertEquals(Staff,testPlayer.getEquippedWeapon());
         waitTurnTest();
+        dead.equipWeapon(Sword);
     }
 
     @Test
