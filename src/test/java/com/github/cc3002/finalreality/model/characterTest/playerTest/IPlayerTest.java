@@ -1,4 +1,4 @@
-package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest;
+package com.github.cc3002.finalreality.model.characterTest.playerTest;
 
 public interface IPlayerTest {
 

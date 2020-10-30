@@ -1,4 +1,4 @@
-package com.github.cc3002.finalreality.model.CharacterTest;
+package com.github.cc3002.finalreality.model.characterTest;
 
 import com.github.abraham054.finalreality.model.character.AbstractCharacter;
 import com.github.abraham054.finalreality.model.character.ICharacter;

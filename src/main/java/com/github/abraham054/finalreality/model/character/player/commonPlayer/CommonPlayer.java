@@ -1,4 +1,4 @@
-package com.github.abraham054.finalreality.model.character.player.commonPlayer;
+package com.github.abraham054.finalreality.model.character.player.CommonPlayer;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;

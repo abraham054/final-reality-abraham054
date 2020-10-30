@@ -1,7 +1,7 @@
-package com.github.cc3002.finalreality.model.CharacterTest;
+package com.github.cc3002.finalreality.model.characterTest;
 
 import com.github.abraham054.finalreality.model.character.Enemy;
-import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonClasses.Knight;
+import com.github.abraham054.finalreality.model.character.player.CommonPlayer.CommonClasses.Knight;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

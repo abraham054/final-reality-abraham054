@@ -1,4 +1,4 @@
-package com.github.cc3002.finalreality.model.WeaponTest.MagicWeaponsTests;
+package com.github.cc3002.finalreality.model.weaponTest.MagicWeaponsTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 

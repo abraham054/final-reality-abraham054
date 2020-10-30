@@ -1,9 +1,9 @@
-package com.github.cc3002.finalreality.model.CharacterTest.PlayerTest.CommonPlayerTests;
+package com.github.cc3002.finalreality.model.characterTest.playerTest.commonPlayerTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
-import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonClasses.Knight;
+import com.github.abraham054.finalreality.model.character.player.CommonPlayer.CommonClasses.Knight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

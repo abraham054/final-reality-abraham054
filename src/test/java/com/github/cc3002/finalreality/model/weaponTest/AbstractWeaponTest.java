@@ -1,4 +1,4 @@
-package com.github.cc3002.finalreality.model.WeaponTest;
+package com.github.cc3002.finalreality.model.weaponTest;
 
 import com.github.abraham054.finalreality.model.weapon.Weapon;
 import com.github.abraham054.finalreality.model.weapon.WeaponTypes.WeaponType;
