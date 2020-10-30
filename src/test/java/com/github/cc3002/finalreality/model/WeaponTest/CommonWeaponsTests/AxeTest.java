@@ -1,11 +1,11 @@
-package com.github.cc3002.finalreality.model.weaponTest.commonWeaponsTests;
+package com.github.cc3002.finalreality.model.weaponTest.CommonWeaponsTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.github.abraham054.finalreality.model.weapon.commonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.weaponTypes.CommonWeaponType;
-import com.github.abraham054.finalreality.model.weapon.magicWeapon.MagicWeapon;
-import com.github.abraham054.finalreality.model.weapon.weaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

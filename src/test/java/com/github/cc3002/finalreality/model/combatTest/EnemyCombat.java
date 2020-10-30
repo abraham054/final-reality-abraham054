@@ -25,5 +25,4 @@ public class EnemyCombat extends AbstractCombat{
         assertEquals(110,testCharFighter.getHealthPoints());
     }
 
-
 }

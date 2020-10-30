@@ -1,11 +1,11 @@
-package com.github.cc3002.finalreality.model.characterTest.playerTest.magicPlayerTests;
+package com.github.cc3002.finalreality.model.characterTest.playerTest.MagicPlayerTests;
 
-import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicPlayer;
-import com.github.abraham054.finalreality.model.weapon.commonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.magicWeapon.MagicWeapon;
+import com.github.abraham054.finalreality.model.character.player.MagicPlayer.MagicPlayer;
+import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
+import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.weaponTypes.CommonWeaponType;
-import com.github.abraham054.finalreality.model.weapon.weaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import com.github.cc3002.finalreality.model.characterTest.playerTest.AbstractPlayerTest;
 import org.junit.jupiter.api.BeforeEach;
 

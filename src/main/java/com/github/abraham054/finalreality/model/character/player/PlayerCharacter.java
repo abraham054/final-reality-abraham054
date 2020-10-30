@@ -5,7 +5,7 @@ import com.github.abraham054.finalreality.model.character.ICharacter;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
-import com.github.abraham054.finalreality.model.character.player.playerClasses.PlayerClasses;
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
 import org.jetbrains.annotations.NotNull;
 

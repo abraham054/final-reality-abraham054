@@ -3,10 +3,10 @@ package com.github.cc3002.finalreality.model.combatTest;
 import com.github.abraham054.finalreality.model.character.Enemy;
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.character.player.magicPlayer.magicClasses.WhiteMage;
-import com.github.abraham054.finalreality.model.weapon.magicWeapon.MagicWeapon;
+import com.github.abraham054.finalreality.model.character.player.MagicPlayer.MagicClasses.WhiteMage;
+import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.weaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.concurrent.BlockingQueue;

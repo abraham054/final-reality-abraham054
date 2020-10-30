@@ -1,9 +1,9 @@
-package com.github.abraham054.finalreality.model.character.player.commonPlayer.commonClasses;
+package com.github.abraham054.finalreality.model.character.player.CommonPlayer.CommonClasses;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
-import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonPlayer;
-import com.github.abraham054.finalreality.model.character.player.playerClasses.CommonPlayerClass;
-import com.github.abraham054.finalreality.model.weapon.weaponTypes.CommonWeaponType;
+import com.github.abraham054.finalreality.model.character.player.CommonPlayer.CommonPlayer;
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
+import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import com.github.abraham054.finalreality.model.weapon.*;
 import org.jetbrains.annotations.NotNull;
 

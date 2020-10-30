@@ -1,8 +1,8 @@
-package com.github.abraham054.finalreality.model.character.player.commonPlayer;
+package com.github.abraham054.finalreality.model.character.player.CommonPlayer;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.character.player.playerClasses.CommonPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
 import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;

@@ -1,9 +1,9 @@
-package com.github.cc3002.finalreality.model.characterTest.playerTest.magicPlayerTests;
+package com.github.cc3002.finalreality.model.characterTest.playerTest.MagicPlayerTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.github.abraham054.finalreality.model.character.player.playerClasses.MagicPlayerClass;
-import com.github.abraham054.finalreality.model.character.player.magicPlayer.magicClasses.WhiteMage;
+import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.MagicPlayer.MagicClasses.WhiteMage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
