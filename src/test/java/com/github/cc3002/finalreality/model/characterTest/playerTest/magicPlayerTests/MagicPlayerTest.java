@@ -1,19 +1,22 @@
 package com.github.cc3002.finalreality.model.characterTest.playerTest.magicPlayerTests;
 
-import com.github.abraham054.finalreality.model.character.player.MagicPlayer.MagicPlayer;
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
+import com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.commonWeapon.Axe;
+import com.github.abraham054.finalreality.model.weapon.commonWeapon.Bow;
+import com.github.abraham054.finalreality.model.weapon.commonWeapon.Knife;
+import com.github.abraham054.finalreality.model.weapon.commonWeapon.Sword;
+import com.github.abraham054.finalreality.model.weapon.magicWeapon.Staff;
 import com.github.cc3002.finalreality.model.characterTest.playerTest.AbstractPlayerTest;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class MagicPlayerTest extends AbstractPlayerTest {
-    protected Weapon Staff;
-    protected Weapon Knife;
     protected Weapon Axe;
-    protected MagicPlayer dead;
+    protected Weapon Bow;
+    protected Weapon Sword;
+    protected Weapon Knife;
+    protected Weapon Staff;
+    protected MagicAbstractPlayer dead;
     protected int mana;
 
     abstract void setMana();
@@ -30,9 +33,11 @@ public abstract class MagicPlayerTest extends AbstractPlayerTest {
 
     @BeforeEach
     void setUpWeapons(){
-        Knife = new CommonWeapon("Bow",15,60, CommonWeaponType.KNIFE);
-        Staff = new MagicWeapon("Staff",17,120, MagicWeaponType.STAFF,100);
-        Axe = new CommonWeapon("Axe",20,100, CommonWeaponType.AXE);
+        Knife = new Knife("Bow",15,60);
+        Staff = new Staff("Staff",17,120, 100);
+        Axe = new Axe("Axe",20,100);
+        Bow = new Bow("Bow",15,60);
+        Sword = new Sword("Sword",30,120);
     }
 
 }

@@ -28,5 +28,5 @@ public class CharacterCombat extends AbstractCombat{
         testCharFighter.attack(testEnemyFighter);
         assertEquals(150,testEnemyFighter.getHealthPoints());
     }
-    
+
 }

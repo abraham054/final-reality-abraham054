@@ -2,8 +2,7 @@ package com.github.cc3002.finalreality.model.characterTest.playerTest.commonPlay
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
-import com.github.abraham054.finalreality.model.character.player.CommonPlayer.CommonClasses.Thief;
+import com.github.abraham054.finalreality.model.character.player.commonPlayer.Thief;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,9 +19,6 @@ public class ThiefTest extends CommonPlayerTest{
         turns = new LinkedBlockingQueue<>();
         testPlayer = new Thief(name,turns,defense,healthPoints);
     }
-
-    @Override
-    public void setClass() { playerClass = CommonPlayerClass.THIEF; }
 
     @BeforeEach
     void setUpThief(){
@@ -41,6 +37,7 @@ public class ThiefTest extends CommonPlayerTest{
         testPlayer.equipWeapon(Staff);
         assertEquals(Staff,testPlayer.getEquippedWeapon());
         testPlayer.equipWeapon(Knife);
+        testPlayer.equipWeapon(Axe);
         assertEquals(Staff,testPlayer.getEquippedWeapon());
         waitTurnTest();
         dead.equipWeapon(Sword);

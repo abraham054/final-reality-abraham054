@@ -3,19 +3,17 @@ package com.github.cc3002.finalreality.model.characterTest.playerTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
+import com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter;
 import java.util.concurrent.BlockingQueue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public abstract class AbstractPlayerTest implements IPlayerTest{
 
-    protected PlayerCharacter testPlayer;
+    protected AbstractPlayerCharacter testPlayer;
     protected String name;
     protected int defense;
     protected int healthPoints;
-    protected PlayerClasses playerClass;
     protected BlockingQueue<ICharacter> turns;
 
     public abstract void setName();
@@ -31,7 +29,6 @@ public abstract class AbstractPlayerTest implements IPlayerTest{
         setName();
         setDefense();
         setHealthPoints();
-        setClass();
         setPlayer();
     }
 
@@ -46,12 +43,6 @@ public abstract class AbstractPlayerTest implements IPlayerTest{
     @Test
     @Override
     public void testHealthPoints() { assertEquals(healthPoints, testPlayer.getHealthPoints());}
-
-    @Test
-    @Override
-    public void testClass() {
-        assertEquals(playerClass,testPlayer.getCharacterClass());
-    }
 
     @Override
     public void waitTurnTest() {

@@ -1,33 +1,29 @@
-package com.github.cc3002.finalreality.model.weaponTest.MagicWeaponsTests;
+package com.github.cc3002.finalreality.model.weaponTest.magicWeaponsTests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.commonWeapon.Axe;
+import com.github.abraham054.finalreality.model.weapon.magicWeapon.Staff;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class StaffTest extends MagicWeaponTest {
 
-    private MagicWeapon expectedStaff;
-    private MagicWeapon newStaff;
-    private CommonWeapon notExpectedAxe;
+    private Staff expectedStaff;
+    private Staff newStaff;
+    private Axe notExpectedAxe;
 
     @Override
-    public void setType() {
-        type = MagicWeaponType.STAFF;
-    }
+    public void setTestedWeapon() {
+        testedWeapon = new Staff(name,weight,damage, magicDamage);}
 
     @BeforeEach
     void setWeapons(){
-        expectedStaff = new MagicWeapon(name, weight, damage,
-                (MagicWeaponType) type, magicDamage);
-        newStaff = new MagicWeapon("new Staff", weight, damage,
-                (MagicWeaponType) type, magicDamage);
-        notExpectedAxe = new CommonWeapon("Axe",10,10,
-                CommonWeaponType.AXE);
+        expectedStaff = new Staff(name, weight, damage,
+                magicDamage);
+        newStaff = new Staff("new Staff", weight, damage,
+                magicDamage);
+        notExpectedAxe = new Axe("Axe",10,10);
     }
 
     @Test
@@ -36,5 +32,10 @@ public class StaffTest extends MagicWeaponTest {
         assertTrue(testedWeapon.equals(testedWeapon));
         assertFalse(testedWeapon.equals(notExpectedAxe));
         assertFalse(testedWeapon.equals(newStaff));
+    }
+
+    @Test
+    void testMagicDamage(){
+        assertEquals(magicDamage,expectedStaff.getMagicDamage());
     }
 }

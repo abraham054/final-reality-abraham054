@@ -1,7 +1,6 @@
 package com.github.cc3002.finalreality.model.weaponTest;
 
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.WeaponType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,15 +10,12 @@ public abstract class AbstractWeaponTest implements IWeaponTest {
     protected String name;
     protected int weight;
     protected int damage;
-    protected WeaponType type;
 
     public abstract void setName();
 
     public abstract void setWeight();
 
     public abstract void setDamage();
-
-    public abstract void setType();
 
     public abstract void setTestedWeapon();
 
@@ -28,7 +24,6 @@ public abstract class AbstractWeaponTest implements IWeaponTest {
         setName();
         setWeight();
         setDamage();
-        setType();
         setTestedWeapon();
     }
 
@@ -48,10 +43,5 @@ public abstract class AbstractWeaponTest implements IWeaponTest {
         assertEquals(damage,testedWeapon.getDamage());
     }
 
-    @Test
-    @Override
-    public void testType(){
-        assertEquals(type,testedWeapon.getType());
-    }
 
 }

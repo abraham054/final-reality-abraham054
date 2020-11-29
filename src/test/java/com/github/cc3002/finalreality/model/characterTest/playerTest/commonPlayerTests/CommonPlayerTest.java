@@ -1,11 +1,10 @@
 package com.github.cc3002.finalreality.model.characterTest.playerTest.commonPlayerTests;
 
-import com.github.abraham054.finalreality.model.character.player.CommonPlayer.CommonPlayer;
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
+import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer;
+import com.github.abraham054.finalreality.model.weapon.commonWeapon.*;
+import com.github.abraham054.finalreality.model.weapon.magicWeapon.MagicWeapon;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.magicWeapon.Staff;
 import com.github.cc3002.finalreality.model.characterTest.playerTest.AbstractPlayerTest;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -15,7 +14,7 @@ public abstract class CommonPlayerTest extends AbstractPlayerTest {
     protected Weapon Sword;
     protected Weapon Knife;
     protected Weapon Staff;
-    protected CommonPlayer dead;
+    protected CommonAbstractPlayer dead;
 
     @Override
     public void setDefense() {
@@ -29,11 +28,11 @@ public abstract class CommonPlayerTest extends AbstractPlayerTest {
 
     @BeforeEach
     void setUpWeapons(){
-        Axe = new CommonWeapon("Axe",20,100, CommonWeaponType.AXE);
-        Bow = new CommonWeapon("Bow",15,60, CommonWeaponType.BOW);
-        Sword = new CommonWeapon("Sword",30,120, CommonWeaponType.SWORD);
-        Knife = new CommonWeapon("Knife",15,80, CommonWeaponType.KNIFE);
-        Staff = new MagicWeapon("Staff",10,30, MagicWeaponType.STAFF,100);
+        Axe = new Axe("Axe",20,100);
+        Bow = new Bow("Bow",15,60);
+        Sword = new Sword("Sword",30,120);
+        Knife = new Knife("Knife",15,80);
+        Staff = new Staff("Staff",10,30, 100);
     }
 
 }

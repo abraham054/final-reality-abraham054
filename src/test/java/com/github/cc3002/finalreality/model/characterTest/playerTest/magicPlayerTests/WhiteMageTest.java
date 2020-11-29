@@ -2,8 +2,7 @@ package com.github.cc3002.finalreality.model.characterTest.playerTest.magicPlaye
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
-import com.github.abraham054.finalreality.model.character.player.MagicPlayer.MagicClasses.WhiteMage;
+import com.github.abraham054.finalreality.model.character.player.magicPlayer.WhiteMage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,8 +20,6 @@ public class WhiteMageTest extends MagicPlayerTest {
     @Override
     public void setMana() { mana = 180; }
 
-    @Override
-    public void setClass() { playerClass = MagicPlayerClass.WHITE_MAGE; }
 
     @Override
     public void setPlayer() {
@@ -49,6 +46,10 @@ public class WhiteMageTest extends MagicPlayerTest {
         testPlayer.equipWeapon(Staff);
         assertEquals(Staff,testPlayer.getEquippedWeapon());
         testPlayer.equipWeapon(Knife);
+        testPlayer.equipWeapon(Axe);
+        testPlayer.equipWeapon(Sword);
+        testPlayer.equipWeapon(Bow);
+        assertEquals(Staff,testPlayer.getEquippedWeapon());
         waitTurnTest();
         dead.equipWeapon(Staff);
     }

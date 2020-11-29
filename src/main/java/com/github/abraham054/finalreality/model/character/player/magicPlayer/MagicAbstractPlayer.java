@@ -1,13 +1,12 @@
-package com.github.abraham054.finalreality.model.character.player.MagicPlayer;
+package com.github.abraham054.finalreality.model.character.player.magicPlayer;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.MagicPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter;
 import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 
-public abstract class MagicPlayer extends PlayerCharacter {
+public abstract class MagicAbstractPlayer extends AbstractPlayerCharacter {
     private final int mana;
 
     /**
@@ -19,9 +18,9 @@ public abstract class MagicPlayer extends PlayerCharacter {
      * @param healthPoints  the character's health points
      * @param mana          the character's mana
      */
-    public MagicPlayer(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue,
-                       int defense, int healthPoints, int mana,MagicPlayerClass playerClass){
-        super(turnsQueue, name,defense,healthPoints,playerClass);
+    public MagicAbstractPlayer(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue,
+                               int defense, int healthPoints, int mana){
+        super(turnsQueue, name,defense,healthPoints);
         this.mana = mana;
     }
 
@@ -37,15 +36,15 @@ public abstract class MagicPlayer extends PlayerCharacter {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof MagicPlayer)) {
+        if (!(o instanceof MagicAbstractPlayer)) {
             return false;
         }
-        final MagicPlayer that = (MagicPlayer) o;
+        final MagicAbstractPlayer that = (MagicAbstractPlayer) o;
         return that.hashCode() == hashCode();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCharacterClass(),getName());
+        return Objects.hash(super.hashCode(), MagicAbstractPlayer.class, getEquippedWeapon());
     }
 }

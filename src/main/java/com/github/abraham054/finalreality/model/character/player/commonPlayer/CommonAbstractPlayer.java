@@ -1,13 +1,12 @@
-package com.github.abraham054.finalreality.model.character.player.CommonPlayer;
+package com.github.abraham054.finalreality.model.character.player.commonPlayer;
 
 import com.github.abraham054.finalreality.model.character.ICharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.CommonPlayerClass;
+import com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter;
 import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 
-public abstract class CommonPlayer extends PlayerCharacter {
+public abstract class CommonAbstractPlayer extends AbstractPlayerCharacter {
 
     /**
      * Creates a new common character.
@@ -17,9 +16,9 @@ public abstract class CommonPlayer extends PlayerCharacter {
      * @param defense       the character's defense
      * @param healthPoints  the character's health points
      */
-    protected CommonPlayer(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue,
-                           int defense, int healthPoints,CommonPlayerClass playerClass){
-        super(turnsQueue, name,defense,healthPoints,playerClass);
+    protected CommonAbstractPlayer(@NotNull String name, @NotNull BlockingQueue<ICharacter> turnsQueue,
+                                   int defense, int healthPoints){
+        super(turnsQueue, name,defense,healthPoints);
     }
 
     @Override
@@ -27,16 +26,16 @@ public abstract class CommonPlayer extends PlayerCharacter {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof CommonPlayer)) {
+        if (!(o instanceof CommonAbstractPlayer)) {
             return false;
         }
-        final CommonPlayer that = (CommonPlayer) o;
+        final CommonAbstractPlayer that = (CommonAbstractPlayer) o;
         return that.hashCode() == hashCode();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCharacterClass(),getName());
+        return Objects.hash(super.hashCode(), CommonAbstractPlayer.class, getEquippedWeapon());
     }
 
 }

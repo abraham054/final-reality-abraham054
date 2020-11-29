@@ -1,7 +1,5 @@
-package com.github.cc3002.finalreality.model.weaponTest.CommonWeaponsTests;
+package com.github.cc3002.finalreality.model.weaponTest.commonWeaponsTests;
 
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
 import com.github.cc3002.finalreality.model.weaponTest.AbstractWeaponTest;
 
 abstract class CommonWeaponTest extends AbstractWeaponTest {
@@ -14,8 +12,5 @@ abstract class CommonWeaponTest extends AbstractWeaponTest {
 
   @Override
   public void setDamage() { damage = 35; }
-
-  @Override
-  public void setTestedWeapon() { testedWeapon = new CommonWeapon(name,weight,damage, (CommonWeaponType) type); }
 
 }

@@ -6,12 +6,10 @@ public interface IPlayerTest {
     void setDefense();
     void setHealthPoints();
     void setPlayer();
-    void setClass();
 
     void testName();
     void testDefense();
     void testHealthPoints();
-    void testClass();
     void testWeapon();
     void waitTurnTest();
 

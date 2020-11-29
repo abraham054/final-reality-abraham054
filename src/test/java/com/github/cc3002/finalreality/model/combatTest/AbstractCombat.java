@@ -2,11 +2,10 @@ package com.github.cc3002.finalreality.model.combatTest;
 
 import com.github.abraham054.finalreality.model.character.Enemy;
 import com.github.abraham054.finalreality.model.character.ICharacter;
-import com.github.abraham054.finalreality.model.character.player.PlayerCharacter;
-import com.github.abraham054.finalreality.model.character.player.MagicPlayer.MagicClasses.WhiteMage;
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
+import com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter;
+import com.github.abraham054.finalreality.model.character.player.magicPlayer.WhiteMage;
 import com.github.abraham054.finalreality.model.weapon.Weapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.magicWeapon.Staff;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.concurrent.BlockingQueue;
@@ -17,7 +16,7 @@ public abstract class AbstractCombat implements ICombat{
     protected Enemy testEnemyFighter;
     protected String nameEnemyFighter;
     protected int healthEnemyFighter;
-    protected PlayerCharacter testCharFighter;
+    protected AbstractPlayerCharacter testCharFighter;
     protected String nameCharFighter;
     protected int healthCharFighter;
     protected int defense;
@@ -40,8 +39,7 @@ public abstract class AbstractCombat implements ICombat{
     }
 
     private void setWeapon(){
-        staff = new MagicWeapon("PaloMagico", 8, 60
-                , MagicWeaponType.STAFF, 150);
+        staff = new Staff("PaloMagico", 8, 60, 150);
     }
 
     @BeforeEach

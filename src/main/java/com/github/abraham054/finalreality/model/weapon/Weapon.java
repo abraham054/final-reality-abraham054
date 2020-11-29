@@ -1,14 +1,12 @@
 package com.github.abraham054.finalreality.model.weapon;
 
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.WeaponType;
-
 /**
  * A class that holds all the information of a weapon.
  *
  * @author Ignacio Slater Muñoz.
  * @author <Your name>
  */
-public abstract class Weapon {
+public abstract class Weapon implements IWeapon{
 
   private final String name;
   private final int weight;
@@ -29,6 +27,7 @@ public abstract class Weapon {
   /**
    * Returns the weapon's name
    * */
+  @Override
   public String getName() {
     return name;
   }
@@ -36,6 +35,7 @@ public abstract class Weapon {
   /**
    * Returns the common weapon's damage
    * */
+  @Override
   public int getDamage(){
     return damage;
   }
@@ -43,9 +43,9 @@ public abstract class Weapon {
   /**
    * Returns the weapon's weight
    * */
+  @Override
   public int getWeight() {
     return weight;
   }
 
-  public abstract WeaponType getType();
 }

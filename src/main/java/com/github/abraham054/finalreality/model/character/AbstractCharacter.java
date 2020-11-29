@@ -1,5 +1,6 @@
 package com.github.abraham054.finalreality.model.character;
 
+import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
 import org.jetbrains.annotations.NotNull;
@@ -74,4 +75,8 @@ public abstract class AbstractCharacter implements ICharacter {
   @Override
   public String getName() { return name; }
 
+  @Override
+  public int hashCode() {
+    return Objects.hash(getName(),getDefense(), getHealthPoints());
+  }
 }

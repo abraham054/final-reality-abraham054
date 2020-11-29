@@ -5,8 +5,7 @@ import com.github.abraham054.finalreality.model.character.ICharacter;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
-import com.github.abraham054.finalreality.model.character.player.PlayerClasses.PlayerClasses;
-import com.github.abraham054.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.weapon.IWeapon;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -15,48 +14,27 @@ import org.jetbrains.annotations.NotNull;
  * @author Ignacio Slater Muñoz.
  * @author <Your name>
  */
-public abstract class PlayerCharacter extends AbstractCharacter {
-  protected Weapon equippedWeapon = null;
-  protected final PlayerClasses playerClass;
+public abstract class AbstractPlayerCharacter extends AbstractCharacter implements IPlayerCharacter{
+  protected IWeapon equippedWeapon = null;
 
   /**
    * Creates a new character.
-   *
+   *  @param turnsQueue    the queue with the characters waiting for their turn
    * @param name          the character's name
-   * @param turnsQueue    the queue with the characters waiting for their turn
    * @param defense       the character's defense
    * @param healthPoints  the character's health points
-   * @param playerClass   the character's class
    */
-  protected PlayerCharacter(@NotNull BlockingQueue<ICharacter> turnsQueue,
-                            @NotNull String name, int defense, int healthPoints,PlayerClasses playerClass) {
+  protected AbstractPlayerCharacter(@NotNull BlockingQueue<ICharacter> turnsQueue,
+                                    @NotNull String name, int defense, int healthPoints) {
     super(turnsQueue, name,defense,healthPoints);
-    this.playerClass = playerClass;
   }
-
-  /**
-   * Returns the class of the character.
-   * */
-  public PlayerClasses getCharacterClass() { return this.playerClass; }
-
-  /**
-   * The character equips a weapon
-   * */
-  public void equipWeapon(Weapon weapon){
-    if(correctWeapon(weapon)){
-      equippedWeapon = weapon;
-    }
-  }
-
-  /**
-   * Returns true if the character can equip the weapon
-   * */
-  protected abstract boolean correctWeapon(Weapon weapon);
 
   /**
    * Returns the character's equipped weapon
    * */
-  public Weapon getEquippedWeapon() { return this.equippedWeapon; }
+  @Override
+  public IWeapon getEquippedWeapon() { return equippedWeapon; }
+
 
   /**
    * Attacks an objective character

@@ -1,33 +1,29 @@
-package com.github.cc3002.finalreality.model.weaponTest.CommonWeaponsTests;
+package com.github.cc3002.finalreality.model.weaponTest.commonWeaponsTests;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import com.github.abraham054.finalreality.model.weapon.CommonWeapon.CommonWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.CommonWeaponType;
-import com.github.abraham054.finalreality.model.weapon.MagicWeapon.MagicWeapon;
-import com.github.abraham054.finalreality.model.weapon.WeaponTypes.MagicWeaponType;
+import com.github.abraham054.finalreality.model.weapon.commonWeapon.Axe;
+import com.github.abraham054.finalreality.model.weapon.magicWeapon.Staff;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class AxeTest extends CommonWeaponTest {
 
-    private CommonWeapon expectedAxe;
-    private CommonWeapon newAxe;
-    private MagicWeapon notExpectedStaff;
+    private Axe expectedAxe;
+    private Axe newAxe;
+    private Staff notExpectedStaff;
 
     @Override
-    public void setType() {
-        type = CommonWeaponType.AXE;
+    public void setTestedWeapon() {
+        testedWeapon = new Axe(name,weight,damage);
     }
 
     @BeforeEach
     void setWeapons(){
-        expectedAxe = new CommonWeapon(name,weight,damage,
-                (CommonWeaponType) type);
-        newAxe = new CommonWeapon("new Axe",weight,damage,
-                (CommonWeaponType) type);
-        notExpectedStaff = new MagicWeapon("Staff", 10, 10,
-                MagicWeaponType.STAFF, 10);
+        expectedAxe = new Axe(name,weight,damage);
+        newAxe = new Axe("new Axe",weight,damage);
+        notExpectedStaff = new Staff("Staff", 10, 10, 10);
     }
 
     @Test
@@ -36,4 +32,5 @@ public class AxeTest extends CommonWeaponTest {
         assertFalse(testedWeapon.equals(notExpectedStaff));
         assertFalse(testedWeapon.equals(newAxe));
     }
+
 }
