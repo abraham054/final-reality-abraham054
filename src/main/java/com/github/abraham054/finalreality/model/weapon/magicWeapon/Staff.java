@@ -2,7 +2,7 @@ package com.github.abraham054.finalreality.model.weapon.magicWeapon;
 
 public class Staff extends MagicWeapon {
     /**
-     * Creates a magic weapon.
+     * Creates a Staff.
      *
      * @param name        the magic weapon's name
      * @param weight      the magic weapon's name

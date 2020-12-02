@@ -45,7 +45,7 @@ public class Enemy extends AbstractCharacter {
   public int getAttackPoints() { return attackPoints; }
 
   /**
-   * Attacks an objective character
+   * Attacks an objective character when alive
    * */
   @Override
   public void attack(AbstractCharacter character){

@@ -16,7 +16,7 @@ public interface ICharacter {
   void waitTurn();
 
   /**
-   * Returns this character's name.
+   * Returns the name of the character.
    */
   String getName();
 

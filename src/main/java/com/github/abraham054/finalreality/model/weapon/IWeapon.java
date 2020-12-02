@@ -8,7 +8,7 @@ public interface IWeapon {
     String getName();
 
     /**
-     * Returns the common weapon's damage
+     * Returns the weapon's damage
      * */
     int getDamage();
 

@@ -44,7 +44,7 @@ public abstract class AbstractCharacter implements ICharacter {
   }
 
   /**
-   * The character receives damage
+   * The character receives damage until it's already dead
    * */
   public void receiveDamage(int damage){
     healthPoints -= damage - defense;

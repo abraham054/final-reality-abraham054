@@ -2,18 +2,17 @@ package com.github.cc3002.finalreality.model.characterTest.playerTest.commonPlay
 
 import com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer;
 import com.github.abraham054.finalreality.model.weapon.commonWeapon.*;
-import com.github.abraham054.finalreality.model.weapon.magicWeapon.MagicWeapon;
-import com.github.abraham054.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.weapon.AbstractWeapon;
 import com.github.abraham054.finalreality.model.weapon.magicWeapon.Staff;
 import com.github.cc3002.finalreality.model.characterTest.playerTest.AbstractPlayerTest;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class CommonPlayerTest extends AbstractPlayerTest {
-    protected Weapon Axe;
-    protected Weapon Bow;
-    protected Weapon Sword;
-    protected Weapon Knife;
-    protected Weapon Staff;
+    protected AbstractWeapon Axe;
+    protected AbstractWeapon Bow;
+    protected AbstractWeapon Sword;
+    protected AbstractWeapon Knife;
+    protected AbstractWeapon Staff;
     protected CommonAbstractPlayer dead;
 
     @Override

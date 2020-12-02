@@ -7,7 +7,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class Thief extends CommonAbstractPlayer {
     /**
-     * Creates a new common character.
+     * Creates a new Thief.
      *
      * @param name         the character's name
      * @param turnsQueue   the queue with the characters waiting for their turn
@@ -19,12 +19,13 @@ public class Thief extends CommonAbstractPlayer {
     }
 
     /**
-     * Equips a Thief's viable weapon.
-     * */
+     * Equips a Thief's viable weapon, if it got equipped returns true else returns false.
+     */
     @Override
-    public void equipWeapon(IWeapon weapon) {
+    public boolean equipWeapon(IWeapon weapon) {
         if(weapon.canEquipThief() && healthPoints > 0){
             this.equippedWeapon = weapon;
-        }
+            return true;
+        } else return false;
     }
 }

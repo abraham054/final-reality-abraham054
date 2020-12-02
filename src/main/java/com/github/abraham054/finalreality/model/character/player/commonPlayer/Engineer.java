@@ -7,7 +7,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class Engineer extends CommonAbstractPlayer {
     /**
-     * Creates a new common character.
+     * Creates a new Engineer.
      *
      * @param name         the character's name
      * @param turnsQueue   the queue with the characters waiting for their turn
@@ -20,12 +20,13 @@ public class Engineer extends CommonAbstractPlayer {
     }
 
     /**
-     * Equips an Engineer's viable weapon.
-     * */
+     * Equips an Engineer's viable weapon, if it got equipped returns true else returns false.
+     */
     @Override
-    public void equipWeapon(IWeapon weapon) {
+    public boolean equipWeapon(IWeapon weapon) {
         if(weapon.canEquipEngineer() && healthPoints > 0){
             this.equippedWeapon = weapon;
-        }
+            return true;
+        } else return false;
     }
 }

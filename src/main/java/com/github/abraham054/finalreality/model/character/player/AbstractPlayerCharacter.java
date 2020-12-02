@@ -18,7 +18,7 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   protected IWeapon equippedWeapon = null;
 
   /**
-   * Creates a new character.
+   * Creates a new player character.
    *  @param turnsQueue    the queue with the characters waiting for their turn
    * @param name          the character's name
    * @param defense       the character's defense
@@ -30,14 +30,14 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   }
 
   /**
-   * Returns the character's equipped weapon
+   * Returns the player character's equipped weapon
    * */
   @Override
   public IWeapon getEquippedWeapon() { return equippedWeapon; }
 
 
   /**
-   * Attacks an objective character
+   * Attacks an objective character when having a weapon and being alive
    * */
   @Override
   public void attack(AbstractCharacter character){

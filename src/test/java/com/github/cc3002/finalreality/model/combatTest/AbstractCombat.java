@@ -4,7 +4,7 @@ import com.github.abraham054.finalreality.model.character.Enemy;
 import com.github.abraham054.finalreality.model.character.ICharacter;
 import com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter;
 import com.github.abraham054.finalreality.model.character.player.magicPlayer.WhiteMage;
-import com.github.abraham054.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.weapon.AbstractWeapon;
 import com.github.abraham054.finalreality.model.weapon.magicWeapon.Staff;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -20,7 +20,7 @@ public abstract class AbstractCombat implements ICombat{
     protected String nameCharFighter;
     protected int healthCharFighter;
     protected int defense;
-    protected Weapon staff;
+    protected AbstractWeapon staff;
 
     public abstract void setHealths();
 

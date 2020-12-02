@@ -10,7 +10,7 @@ public abstract class MagicAbstractPlayer extends AbstractPlayerCharacter {
     private final int mana;
 
     /**
-     * Creates a new character.
+     * Creates a new  magic character.
      *
      * @param name          the character's name
      * @param turnsQueue    the queue with the characters waiting for their turn

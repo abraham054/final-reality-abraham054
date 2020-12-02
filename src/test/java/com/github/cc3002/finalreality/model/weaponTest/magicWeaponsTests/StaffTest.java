@@ -15,7 +15,7 @@ public class StaffTest extends MagicWeaponTest {
 
     @Override
     public void setTestedWeapon() {
-        testedWeapon = new Staff(name,weight,damage, magicDamage);}
+        testedAbstractWeapon = new Staff(name,weight,damage, magicDamage);}
 
     @BeforeEach
     void setWeapons(){
@@ -28,10 +28,10 @@ public class StaffTest extends MagicWeaponTest {
 
     @Test
     void equals(){
-        assertEquals(expectedStaff,testedWeapon);
-        assertTrue(testedWeapon.equals(testedWeapon));
-        assertFalse(testedWeapon.equals(notExpectedAxe));
-        assertFalse(testedWeapon.equals(newStaff));
+        assertEquals(expectedStaff, testedAbstractWeapon);
+        assertTrue(testedAbstractWeapon.equals(testedAbstractWeapon));
+        assertFalse(testedAbstractWeapon.equals(notExpectedAxe));
+        assertFalse(testedAbstractWeapon.equals(newStaff));
     }
 
     @Test

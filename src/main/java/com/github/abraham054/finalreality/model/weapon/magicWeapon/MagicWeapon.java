@@ -1,13 +1,14 @@
 package com.github.abraham054.finalreality.model.weapon.magicWeapon;
 
-import com.github.abraham054.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.weapon.AbstractWeapon;
 import java.util.Objects;
 
-public abstract class MagicWeapon extends Weapon {
+public abstract class MagicWeapon extends AbstractWeapon {
     private final int magicDamage;
 
     /**
      * Creates a magic weapon.
+     *
      * @param name          the magic weapon's name
      * @param weight        the magic weapon's name
      * @param damage        the magic weapon's damage

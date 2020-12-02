@@ -2,7 +2,7 @@ package com.github.abraham054.finalreality.model.weapon.commonWeapon;
 
 public class Sword extends CommonWeapon {
     /**
-     * Creates a weapon with a name, a base damage, speed and it's type.
+     * Creates a Sword.
      *
      * @param name   the common weapon's name
      * @param weight the common weapon's weight

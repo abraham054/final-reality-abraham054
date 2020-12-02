@@ -11,6 +11,11 @@ public abstract class AbstractCharacterFactory {
     protected int healthPoints;
     protected int defense;
 
+    /**
+     * Creates a Character Factory.
+     * @param turnsQueue a Blocking queue that contains the turns.
+     * @param name       the name of the character.
+     * */
     public AbstractCharacterFactory(BlockingQueue<ICharacter> turnsQueue, String name){
         this.turnsQueue = turnsQueue;
         this.name = name;

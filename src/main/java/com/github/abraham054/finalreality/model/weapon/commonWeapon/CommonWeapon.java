@@ -1,11 +1,11 @@
 package com.github.abraham054.finalreality.model.weapon.commonWeapon;
 
-import com.github.abraham054.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.weapon.AbstractWeapon;
 import java.util.Objects;
 
-public abstract class CommonWeapon extends Weapon {
+public abstract class CommonWeapon extends AbstractWeapon {
     /**
-     * Creates a weapon with a name, a base damage, speed and it's type.
+     * Creates a common weapon.
      * @param name      the common weapon's name
      * @param weight    the common weapon's weight
      * @param damage    the common weapon's damage

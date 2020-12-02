@@ -16,7 +16,7 @@ public class AxeTest extends CommonWeaponTest {
 
     @Override
     public void setTestedWeapon() {
-        testedWeapon = new Axe(name,weight,damage);
+        testedAbstractWeapon = new Axe(name,weight,damage);
     }
 
     @BeforeEach
@@ -28,9 +28,9 @@ public class AxeTest extends CommonWeaponTest {
 
     @Test
     void equals(){
-        assertTrue(testedWeapon.equals(expectedAxe));
-        assertFalse(testedWeapon.equals(notExpectedStaff));
-        assertFalse(testedWeapon.equals(newAxe));
+        assertTrue(testedAbstractWeapon.equals(expectedAxe));
+        assertFalse(testedAbstractWeapon.equals(notExpectedStaff));
+        assertFalse(testedAbstractWeapon.equals(newAxe));
     }
 
 }

@@ -1,12 +1,12 @@
 package com.github.cc3002.finalreality.model.weaponTest;
 
-import com.github.abraham054.finalreality.model.weapon.Weapon;
+import com.github.abraham054.finalreality.model.weapon.AbstractWeapon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public abstract class AbstractWeaponTest implements IWeaponTest {
-    protected Weapon testedWeapon;
+    protected AbstractWeapon testedAbstractWeapon;
     protected String name;
     protected int weight;
     protected int damage;
@@ -29,18 +29,18 @@ public abstract class AbstractWeaponTest implements IWeaponTest {
 
     @Test
     @Override
-    public void testName(){ assertEquals(name,testedWeapon.getName()); }
+    public void testName(){ assertEquals(name, testedAbstractWeapon.getName()); }
 
     @Test
     @Override
     public void testWeight(){
-        assertEquals(weight,testedWeapon.getWeight());
+        assertEquals(weight, testedAbstractWeapon.getWeight());
     }
 
     @Test
     @Override
     public void testDamage(){
-        assertEquals(damage,testedWeapon.getDamage());
+        assertEquals(damage, testedAbstractWeapon.getDamage());
     }
 
 

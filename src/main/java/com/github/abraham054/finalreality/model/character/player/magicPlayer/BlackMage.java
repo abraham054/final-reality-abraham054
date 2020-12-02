@@ -7,7 +7,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class BlackMage extends MagicAbstractPlayer {
     /**
-     * Creates a new character.
+     * Creates a new Black mage.
      *
      * @param name         the character's name
      * @param turnsQueue   the queue with the characters waiting for their turn
@@ -21,12 +21,13 @@ public class BlackMage extends MagicAbstractPlayer {
     }
 
     /**
-     * Equips a Black mage's viable weapon.
-     * */
+     * Equips a Black mage's viable weapon, if it got equipped returns true else returns false.
+     */
     @Override
-    public void equipWeapon(IWeapon weapon) {
+    public boolean equipWeapon(IWeapon weapon) {
         if(weapon.canEquipBlackMage() && healthPoints > 0){
             this.equippedWeapon = weapon;
-        }
+            return true;
+        } else return false;
     }
 }
