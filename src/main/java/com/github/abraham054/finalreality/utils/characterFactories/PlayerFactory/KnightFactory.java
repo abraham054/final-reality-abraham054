@@ -17,7 +17,7 @@ public class KnightFactory extends AbstractCharacterFactory implements IPlayerFa
     public KnightFactory(BlockingQueue<ICharacter> turnsQueue, String name) {
         super(turnsQueue, name);
         this.healthPoints = 200;
-        this.defense = 80;
+        this.defense = 25;
     }
 
     /**

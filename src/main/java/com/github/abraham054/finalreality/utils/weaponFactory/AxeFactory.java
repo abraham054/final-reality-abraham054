@@ -12,7 +12,7 @@ public class AxeFactory extends AbstractWeaponFactory{
     public AxeFactory(String name) {
         super(name);
         this.weight = 13;
-        this.damage = 50;
+        this.damage = 90;
     }
 
     /**

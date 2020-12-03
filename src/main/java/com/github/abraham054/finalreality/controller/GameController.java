@@ -10,20 +10,21 @@ import com.github.abraham054.finalreality.utils.weaponFactory.*;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 
 /**
- * The game controller in charge of the game logic, has a list for each enemy, player character and weapon available.
+ * Creates the game controller in charge of the game logic, has a list for each enemy, player character and weapon available.
  * */
 public class GameController {
     private final LinkedList<AbstractPlayerCharacter> playerCharacters = new LinkedList<>();
     private final LinkedList<Enemy> enemies = new LinkedList<>();
     private final LinkedList<IWeapon> inventory = new LinkedList<>();
-    private BlockingQueue<ICharacter> turns;
+    private final BlockingQueue<ICharacter> turns = new LinkedBlockingDeque<>();
 
     /**
      * The constructor starts by creating the player characters, enemies and weapon in the inventory.
      * */
-    GameController(){
+    public GameController(){
         createPlayer();
         createEnemies();
         createInventory();
@@ -37,7 +38,7 @@ public class GameController {
     }
 
     /**
-     * Makes a player character attack an enemy, if killed removes it from the enemies list
+     * Makes a player character attack an enemy, if killed removes it from the enemies and turns list.
      * */
     public void attackEnemy(AbstractPlayerCharacter playerCharacter, Enemy enemy){
         playerCharacter.attack(enemy);
@@ -49,13 +50,20 @@ public class GameController {
     }
 
     /**
-     * Makes an enemy attack a random character from the player characters list
+     * Makes an enemy attack a random character from the player characters list, if it dies removes it from
+     * the turns and player characters list, also adding the weapon to the inventory back.
      * */
     public void attackPlayer(Enemy enemy){
         int len = playerCharacters.size();
         Random ran = new Random();
         int nxt = ran.nextInt(len);
-        enemy.attack(playerCharacters.get(nxt));
+        AbstractPlayerCharacter objective = playerCharacters.get(nxt);
+        enemy.attack(objective);
+        if (objective.getHealthPoints() <=0){
+            playerCharacters.remove(nxt);
+            turns.remove(objective);
+            inventory.add(objective.getEquippedWeapon());
+        }
         endTurn(enemy);
     }
 
@@ -63,13 +71,11 @@ public class GameController {
      * Function that goes by every player character from the list and starts
      * the count of when it gets added to the turns Blocking queue
      * */
-    private boolean startAllyTurns(){
+    private void startAllyTurns(){
         for (AbstractPlayerCharacter playerCharacter:
              playerCharacters) {
-            if(playerCharacter.getEquippedWeapon() != null){
-                playerCharacter.waitTurn();
-            } else return false;
-        } return true;
+            playerCharacter.waitTurn();
+        }
     }
 
     /**
@@ -92,22 +98,35 @@ public class GameController {
     }
 
     /**
-     * Checks if the characters from a list are all dead, by checking if the list is empty
+     * Checks if the enemies are all dead, by checking if the list is empty
      * */
-    public boolean deadTeam(LinkedList list){
-        return list.isEmpty();
+    public boolean deadEnemies(){
+        return enemies.isEmpty();
+    }
+
+    /**
+     * Checks if the allies are all dead, by checking if the list is empty
+     * */
+    public boolean deadAllies(){
+        return playerCharacters.isEmpty();
     }
 
     /**
      * Equips a viable weapon to an ally, if the ally already has a weapon equipped it swaps them
      * and adds the free one back to the inventory.
      * */
-    private void equipWeapon(AbstractPlayerCharacter playerCharacter,IWeapon weapon){
+    public void equipWeapon(int index,IWeapon weapon){
+        AbstractPlayerCharacter playerCharacter = getAlly(index);
+        boolean isArmed = false;
+        IWeapon equippedWeapon = null;
+        if( playerCharacter.getEquippedWeapon() != null){
+            isArmed = true;
+            equippedWeapon = playerCharacter.getEquippedWeapon();
+        }
         if (playerCharacter.equipWeapon(weapon)){
-            inventory.remove(weapon);
-            if( playerCharacter.getEquippedWeapon() != null){
-                IWeapon equippedWeapon =  playerCharacter.getEquippedWeapon();
-                inventory.add(equippedWeapon);
+            getInventory().remove(weapon);
+            if(isArmed){
+                getInventory().add(equippedWeapon);
             }
         }
     }
@@ -118,12 +137,17 @@ public class GameController {
     private void createPlayer(){
         addPlayerCharacter(new BlackMageFactory(turns, "Mago oscuro"));
         addPlayerCharacter(new EngineerFactory(turns,"El industrial"));
+        addPlayerCharacter(new KnightFactory(turns,"Artorias"));
+        addPlayerCharacter(new ThiefFactory(turns,"Tifa"));
+        addPlayerCharacter(new WhiteMageFactory(turns,"Gandalf"));
     }
 
     /**
      * Creates the enemies of the game and adds them to the enemies list
      * */
     private void createEnemies(){
+        addEnemy(new GoblinFactory(turns,"Goblin"));
+        addEnemy(new GoblinFactory(turns,"Goblin"));
         addEnemy(new GoblinFactory(turns,"Goblin"));
         addEnemy(new DemonFactory(turns,"Demonio"));
         addEnemy(new TrollFactory(turns,"Troll"));
@@ -134,7 +158,12 @@ public class GameController {
      * */
     private void createInventory(){
         addWeapon(new StaffFactory("Baston magico"));
+        addWeapon(new StaffFactory("Baston oscuro"));
         addWeapon(new AxeFactory("Hacha enana"));
+        addWeapon(new SwordFactory("Espada del olimpo"));
+        addWeapon(new KnifeFactory("Daga oculta"));
+        addWeapon(new BowFactory("Arco de elfo"));
+
     }
 
     /**
@@ -156,4 +185,45 @@ public class GameController {
      * */
     public void addWeapon(IWeaponFactory factory) { inventory.add(factory.make());}
 
+    /**
+     * Returns the list of the inventory.
+     * */
+    public LinkedList<IWeapon> getInventory(){
+        return inventory;
+    }
+
+    /**
+     * Returns the list of the enemies.
+     * */
+    public LinkedList<Enemy> getEnemies(){
+        return enemies;
+    }
+
+    /**
+     * Returns the list of the player characters.
+     * */
+    public LinkedList<AbstractPlayerCharacter> getPlayerCharacters(){
+        return playerCharacters;
+    }
+
+    /**
+     * Returns the ally in a specific position of the player characters linked list.
+     * */
+    public AbstractPlayerCharacter getAlly(int index){
+        return playerCharacters.get(index);
+    }
+
+    /**
+     * Returns the enemy in a specific position of the enemies linked list.
+     * */
+    public Enemy getEnemy(int index){
+        return enemies.get(index);
+    }
+
+    /**
+     * Returns the turns blocking queue.
+     * */
+    public BlockingQueue<ICharacter> getTurns(){
+        return turns;
+    }
 }

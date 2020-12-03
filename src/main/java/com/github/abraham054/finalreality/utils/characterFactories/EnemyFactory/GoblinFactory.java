@@ -14,7 +14,7 @@ public class GoblinFactory extends EnemyFactory{
    public GoblinFactory(BlockingQueue<ICharacter> turnsQueue, String name) {
         super(turnsQueue, name);
         this.weight = 12;
-        this.attackPoints = 30;
+        this.attackPoints = 40;
         this.healthPoints = 60;
         this.defense = 30;
     }

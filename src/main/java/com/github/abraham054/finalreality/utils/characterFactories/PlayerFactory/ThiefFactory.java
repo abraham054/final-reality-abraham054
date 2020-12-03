@@ -17,7 +17,7 @@ public class ThiefFactory extends AbstractCharacterFactory implements IPlayerFac
     public ThiefFactory(BlockingQueue<ICharacter> turnsQueue, String name) {
         super(turnsQueue, name);
         this.healthPoints = 100;
-        this.defense = 30;
+        this.defense = 15;
     }
 
     /**

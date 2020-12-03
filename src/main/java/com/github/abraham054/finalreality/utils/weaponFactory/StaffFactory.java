@@ -12,9 +12,9 @@ public class StaffFactory extends AbstractWeaponFactory{
      * */
     public StaffFactory(String name) {
         super(name);
-        this.magicDamage = 50;
+        this.magicDamage = 70;
         this.weight = 12;
-        this.damage = 20;
+        this.damage = 40;
     }
 
     /**

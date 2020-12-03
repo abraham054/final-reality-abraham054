@@ -17,7 +17,7 @@ public class EngineerFactory extends AbstractCharacterFactory implements IPlayer
     public EngineerFactory(BlockingQueue<ICharacter> turnsQueue, String name) {
         super(turnsQueue, name);
         this.healthPoints = 160;
-        this.defense = 70;
+        this.defense = 20;
     }
 
     /**

@@ -19,7 +19,7 @@ public class WhiteMageFactory extends AbstractCharacterFactory implements IPlaye
         super(turnsQueue, name);
         this.mana = 130;
         this.healthPoints = 130;
-        this.defense = 50;
+        this.defense = 13;
     }
 
     /**
