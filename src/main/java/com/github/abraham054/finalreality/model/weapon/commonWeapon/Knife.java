@@ -25,7 +25,7 @@ public class Knife extends CommonWeapon{
      * */
     @Override
     public Boolean canEquipKnight() {
-        return true;
+        return getIfAvailable();
     }
 
     /**
@@ -41,7 +41,7 @@ public class Knife extends CommonWeapon{
      * */
     @Override
     public Boolean canEquipBlackMage() {
-        return true;
+        return getIfAvailable();
     }
 
     /**

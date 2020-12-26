@@ -1,8 +1,12 @@
 package com.github.abraham054.finalreality.model.character;
 
+import java.beans.PropertyChangeSupport;
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
+
+import com.github.abraham054.finalreality.controller.handlers.IEventHandler;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -12,6 +16,9 @@ import org.jetbrains.annotations.NotNull;
  * @author <Your name>
  */
 public abstract class AbstractCharacter implements ICharacter {
+
+  private final PropertyChangeSupport dyingEvent = new PropertyChangeSupport(this);
+  protected final PropertyChangeSupport endTurnEvent = new PropertyChangeSupport(this);
 
   protected  final BlockingQueue<ICharacter> turnsQueue;
   protected ScheduledExecutorService scheduledExecutor;
@@ -48,14 +55,27 @@ public abstract class AbstractCharacter implements ICharacter {
    * */
   public void receiveDamage(int damage){
     healthPoints -= damage - defense;
-    if (healthPoints < 0){ healthPoints = 0; }
-
+    if (healthPoints <= 0){
+      healthPoints = 0;
+      dyingEvent.firePropertyChange(name +" has died",null,this);
+    }
   }
 
   /**
    * Attacks an objective character
    * */
   protected abstract void attack(AbstractCharacter character);
+
+  public void addEndTurnListener(IEventHandler endTurnHandler) {
+    endTurnEvent.addPropertyChangeListener(endTurnHandler);
+  }
+
+  public void addDeadListener(IEventHandler deadHandler){
+    dyingEvent.addPropertyChangeListener(deadHandler);
+  }
+
+  @Override
+  public abstract LinkedList<String> getStats();
 
   /**
    * Returns the health points of the abstract character.

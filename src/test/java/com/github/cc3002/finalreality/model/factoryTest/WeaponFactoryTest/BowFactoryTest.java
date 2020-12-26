@@ -11,7 +11,7 @@ public class BowFactoryTest extends AbstractWFTest {
 
     @Override
     public void setWeapon() {
-        weapon = new Bow(name,10,60);
+        weapon = new Bow(name,10,70);
     }
 
     @Override

@@ -1,11 +1,25 @@
 package com.github.abraham054.finalreality.model.weapon;
 
+import com.github.abraham054.finalreality.utils.weaponStates.WeaponState;
+
+import java.util.LinkedList;
+
 public interface IWeapon {
 
     /**
      * Returns the weapon's name
      * */
     String getName();
+
+    LinkedList<String> getStats();
+
+    void unEquip();
+
+    void equip();
+
+    boolean getIfAvailable();
+
+    WeaponState getWeaponState();
 
     /**
      * Returns the weapon's damage

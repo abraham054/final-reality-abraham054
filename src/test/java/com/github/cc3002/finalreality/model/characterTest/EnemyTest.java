@@ -2,6 +2,8 @@ package com.github.cc3002.finalreality.model.characterTest;
 
 import com.github.abraham054.finalreality.model.character.Enemy;
 import com.github.abraham054.finalreality.model.character.player.commonPlayer.Knight;
+
+import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,6 +51,18 @@ class EnemyTest extends AbstractCharacterTests {
   void testEnemy(){
     assertEquals(weight, bigEnemy.getWeight());
     assertEquals(attackPoints, bigEnemy.getAttackPoints());
+    assertFalse(testCharacter.isAlly());
+  }
+
+  @Test
+  public void testStats() {
+    LinkedList<String> stats = new LinkedList<>();
+    stats.add(bigEnemy.getName());
+    stats.add("Weight: " + String.valueOf(bigEnemy.getWeight()));
+    stats.add("Defense: " + String.valueOf(bigEnemy.getDefense()));
+    stats.add("Attack points: " + String.valueOf(bigEnemy.getAttackPoints()));
+    stats.add("Health points: " + String.valueOf(bigEnemy.getHealthPoints()));
+    assertEquals(stats,bigEnemy.getStats());
   }
 
   @Test

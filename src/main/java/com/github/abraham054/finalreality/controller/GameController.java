@@ -1,5 +1,10 @@
 package com.github.abraham054.finalreality.controller;
 
+import com.github.abraham054.finalreality.controller.exceptions.InvalidTransitionException;
+import com.github.abraham054.finalreality.controller.exceptions.InvalidTurnException;
+import com.github.abraham054.finalreality.controller.handlers.*;
+import com.github.abraham054.finalreality.controller.phases.Phase;
+import com.github.abraham054.finalreality.controller.phases.StartTurnsPhase;
 import com.github.abraham054.finalreality.model.character.*;
 import com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter;
 import com.github.abraham054.finalreality.model.weapon.IWeapon;
@@ -20,6 +25,15 @@ public class GameController {
     private final LinkedList<Enemy> enemies = new LinkedList<>();
     private final LinkedList<IWeapon> inventory = new LinkedList<>();
     private final BlockingQueue<ICharacter> turns = new LinkedBlockingDeque<>();
+    private AbstractPlayerCharacter selectedPlayer;
+    private Enemy selectedEnemy;
+
+    private final IEventHandler beginTurnHandler = new BeginTurnHandler(this);
+    private final IEventHandler endTurnHandler = new EndTurnHandler(this);
+    private final IEventHandler deadPlayerHandler = new DeadPlayerHandler(this);
+    private final IEventHandler deadEnemyHandler = new DeadEnemyHandler(this);
+
+    private Phase phase;
 
     /**
      * The constructor starts by creating the player characters, enemies and weapon in the inventory.
@@ -27,44 +41,41 @@ public class GameController {
     public GameController(){
         createPlayer();
         createEnemies();
+        setListeners();
         createInventory();
+        setPhase(new StartTurnsPhase());
+        selectAlly(0);
+        selectEnemy(0);
     }
 
-    /**
-     * Receives a character, which can be an enemy or a player character, and end it's turn.
-     * */
-    private void endTurn(ICharacter character){
-        turns.remove(character);
+    public AbstractPlayerCharacter getSelectedAlly(){
+        return selectedPlayer;
     }
 
-    /**
-     * Makes a player character attack an enemy, if killed removes it from the enemies and turns list.
-     * */
-    public void attackEnemy(AbstractPlayerCharacter playerCharacter, Enemy enemy){
-        playerCharacter.attack(enemy);
-        endTurn(playerCharacter);
-        if(enemy.getHealthPoints()<=0){
-            enemies.remove(enemy);
-            turns.remove(enemy);
+    public Enemy getSelectedEnemy(){
+        return selectedEnemy;
+    }
+
+    public void selectAlly(int index){
+        selectedPlayer = getAlly(index);
+    }
+
+    public void selectEnemy(int index){
+        selectedEnemy = getEnemy(index);
+    }
+
+    private void setListeners() {
+        for (AbstractPlayerCharacter playerCharacter:
+             playerCharacters) {
+            playerCharacter.addDeadListener(deadPlayerHandler);
+            playerCharacter.addBeginTurnListener(beginTurnHandler);
+            playerCharacter.addEndTurnListener(endTurnHandler);
         }
-    }
-
-    /**
-     * Makes an enemy attack a random character from the player characters list, if it dies removes it from
-     * the turns and player characters list, also adding the weapon to the inventory back.
-     * */
-    public void attackPlayer(Enemy enemy){
-        int len = playerCharacters.size();
-        Random ran = new Random();
-        int nxt = ran.nextInt(len);
-        AbstractPlayerCharacter objective = playerCharacters.get(nxt);
-        enemy.attack(objective);
-        if (objective.getHealthPoints() <=0){
-            playerCharacters.remove(nxt);
-            turns.remove(objective);
-            inventory.add(objective.getEquippedWeapon());
+        for (Enemy enemy :
+                enemies) {
+            enemy.addDeadListener(deadEnemyHandler);
+            enemy.addEndTurnListener(endTurnHandler);
         }
-        endTurn(enemy);
     }
 
     /**
@@ -97,10 +108,65 @@ public class GameController {
         startEnemyTurns();
     }
 
+    public void allyTurn(){
+        AbstractPlayerCharacter playerCharacter = (AbstractPlayerCharacter) turns.peek();
+        playerCharacter.isTurn();
+    }
+
+    public void turnAttackAnEnemy(){
+        AbstractPlayerCharacter playerCharacter = (AbstractPlayerCharacter) turns.peek();
+        attackEnemy(playerCharacter,selectedEnemy);
+    }
+
+    public void turnAttackAPlayer() {
+        Enemy enemy = (Enemy) turns.peek();
+        attackPlayer(enemy);
+    }
+
+    /**
+     * Makes a player character attack an enemy, if killed removes it from the enemies and turns list.
+     * */
+    public void attackEnemy(AbstractPlayerCharacter playerCharacter, Enemy enemy){
+        playerCharacter.attack(enemy);
+    }
+
+    /**
+     * Makes an enemy attack a random character from the player characters list, if it dies removes it from
+     * the turns and player characters list, also adding the weapon to the inventory back.
+     * */
+    public void attackPlayer(Enemy enemy){
+        int len = playerCharacters.size();
+        Random ran = new Random();
+        int nxt = ran.nextInt(len);
+        AbstractPlayerCharacter objective = playerCharacters.get(nxt);
+        enemy.attack(objective);
+    }
+
+    public void equipSelectedAlly(IWeapon weapon){
+        int index = playerCharacters.indexOf(selectedPlayer);
+        equipWeapon(index,weapon);
+    }
+
+    /**
+     * Equips a viable weapon to an ally, if the ally already has a weapon equipped it swaps them
+     * and adds the free one back to the inventory.
+     * */
+    public void equipWeapon(int index,IWeapon weapon){
+        AbstractPlayerCharacter playerCharacter = getAlly(index);
+        IWeapon equippedWeapon = playerCharacter.getEquippedWeapon();
+        if (playerCharacter.equipWeapon(weapon)){
+            if( equippedWeapon != null){
+                equippedWeapon.unEquip();
+            }
+            weapon.equip();
+        }
+    }
+
     /**
      * Checks if the enemies are all dead, by checking if the list is empty
      * */
     public boolean deadEnemies(){
+        System.out.println(enemies.isEmpty()+ " estado enemies");
         return enemies.isEmpty();
     }
 
@@ -111,24 +177,31 @@ public class GameController {
         return playerCharacters.isEmpty();
     }
 
+    public void startedTurn(AbstractPlayerCharacter playerCharacter) {
+        System.out.println(playerCharacter.getName()+ " started his turn");
+    }
+
     /**
-     * Equips a viable weapon to an ally, if the ally already has a weapon equipped it swaps them
-     * and adds the free one back to the inventory.
+     * Receives a character, which can be an enemy or a player character, and end it's turn.
      * */
-    public void equipWeapon(int index,IWeapon weapon){
-        AbstractPlayerCharacter playerCharacter = getAlly(index);
-        boolean isArmed = false;
-        IWeapon equippedWeapon = null;
-        if( playerCharacter.getEquippedWeapon() != null){
-            isArmed = true;
-            equippedWeapon = playerCharacter.getEquippedWeapon();
-        }
-        if (playerCharacter.equipWeapon(weapon)){
-            getInventory().remove(weapon);
-            if(isArmed){
-                getInventory().add(equippedWeapon);
-            }
-        }
+    public void endedTurn(AbstractCharacter character) {
+        System.out.println(character.getName()+ " ended his turn");
+        turns.remove(character);
+    }
+
+    public boolean playerIsDead(AbstractPlayerCharacter playerCharacter) {
+        System.out.println(playerCharacter.getName()+ " is dead");
+        turns.remove(playerCharacter);
+        playerCharacters.remove(playerCharacter);
+        playerCharacter.getEquippedWeapon().unEquip();
+        return deadAllies();
+    }
+
+    public boolean enemyIsDead(Enemy enemy){
+        System.out.println(enemy.getName()+ " is dead");
+        turns.remove(enemy);
+        enemies.remove(enemy);
+        return deadEnemies();
     }
 
     /**
@@ -146,8 +219,8 @@ public class GameController {
      * Creates the enemies of the game and adds them to the enemies list
      * */
     private void createEnemies(){
-        addEnemy(new GoblinFactory(turns,"Goblin"));
-        addEnemy(new GoblinFactory(turns,"Goblin"));
+        addEnemy(new GoblinFactory(turns,"Duende verde"));
+        addEnemy(new GoblinFactory(turns,"Goblin enano"));
         addEnemy(new GoblinFactory(turns,"Goblin"));
         addEnemy(new DemonFactory(turns,"Demonio"));
         addEnemy(new TrollFactory(turns,"Troll"));
@@ -163,7 +236,6 @@ public class GameController {
         addWeapon(new SwordFactory("Espada del olimpo"));
         addWeapon(new KnifeFactory("Daga oculta"));
         addWeapon(new BowFactory("Arco de elfo"));
-
     }
 
     /**
@@ -225,5 +297,108 @@ public class GameController {
      * */
     public BlockingQueue<ICharacter> getTurns(){
         return turns;
+    }
+
+    public ICharacter getTurnsHead(){
+        return turns.peek();
+    }
+
+    public Boolean isAllyTurn(){
+        return getTurnsHead().isAlly();
+    }
+
+    public void setPhase(Phase phase) {
+        this.phase = phase;
+        phase.setController(this);
+    }
+
+    public void tryGoToMenu(){
+        try{
+            phase.toStartTurnsPhase();
+        } catch (InvalidTransitionException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void tryBeginCombat(){
+        if(allTeamEquiped()){
+            try{
+                phase.StartTurns();
+            } catch (InvalidTurnException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void tryFight(){
+        try{
+            phase.playTurn();
+        } catch (InvalidTurnException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void tryStartTurn() {
+        try{
+            phase.toTurnPhase();
+        } catch (InvalidTransitionException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void tryPlayerAttack(){
+        try{
+            phase.attack();
+        } catch (InvalidTurnException e){
+            e.printStackTrace();
+        }
+    }
+
+    public boolean tryEnemyAttack() {
+        if (!turns.peek().isAlly()) {
+            try {
+                phase.attack();
+            } catch (InvalidTurnException e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public boolean allTeamEquiped() {
+        for (AbstractPlayerCharacter playerChar :
+                getPlayerCharacters()) {
+            if (playerChar.getEquippedWeapon() == null){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public LinkedList<String> getPlayerStats(int index){
+        AbstractPlayerCharacter playerCharacter = getAlly(index);
+        return playerCharacter.getStats();
+    }
+
+    public LinkedList<String> getEnemyStats(int index){
+        Enemy enemy = getEnemy(index);
+        return enemy.getStats();
+    }
+
+    public LinkedList<String> getWeaponStats(int index){
+        return getInventory().get(index).getStats();
+    }
+
+    public String getPhaseString(){
+        return phase.toString();
+    }
+
+    public Phase getPhase(){
+        return phase;
+    }
+
+    public boolean playerTurn() {
+        return phase.canAttack();
     }
 }

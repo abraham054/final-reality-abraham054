@@ -6,6 +6,7 @@ import com.github.abraham054.finalreality.model.character.player.magicPlayer.Whi
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class WhiteMageTest extends MagicPlayerTest {
@@ -52,6 +53,24 @@ public class WhiteMageTest extends MagicPlayerTest {
         assertEquals(Staff,testPlayer.getEquippedWeapon());
         waitTurnTest();
         dead.equipWeapon(Staff);
+    }
+
+    @Test
+    public void testWhiteMage(){
+        assertTrue(testPlayer.isAlly());
+    }
+
+    @Test
+    public void testStats() {
+        LinkedList<String> stats = new LinkedList<>();
+        stats.add(gandalf.getName());
+        stats.add("Defense: " + String.valueOf(gandalf.getDefense()));
+        stats.add("Health points: " + String.valueOf(gandalf.getHealthPoints()));
+        stats.add("Mana: " + String.valueOf(gandalf.getMana()));
+        assertEquals(stats,gandalf.getStats());
+        gandalf.equipWeapon(Staff);
+        stats.add("Arma: " + gandalf.getEquippedWeapon().getName());
+        assertEquals(stats,gandalf.getStats());
     }
 
     @Test

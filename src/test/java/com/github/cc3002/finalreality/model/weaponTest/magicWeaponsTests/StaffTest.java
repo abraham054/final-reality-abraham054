@@ -5,6 +5,8 @@ import com.github.abraham054.finalreality.model.weapon.magicWeapon.Staff;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StaffTest extends MagicWeaponTest {
@@ -35,7 +37,19 @@ public class StaffTest extends MagicWeaponTest {
     }
 
     @Test
+    @Override
     void testMagicDamage(){
         assertEquals(magicDamage,expectedStaff.getMagicDamage());
+    }
+
+    @Test
+    public void testStats() {
+        LinkedList<String> stats = new LinkedList<>();
+        stats.add(expectedStaff.getName());
+        stats.add(String.valueOf(expectedStaff.getWeight()));
+        stats.add(String.valueOf(expectedStaff.getDamage()));
+        stats.add(String.valueOf(expectedStaff.getMagicDamage()));
+        stats.add(expectedStaff.getWeaponState().toString());
+        assertEquals(stats,testedAbstractWeapon.getStats());
     }
 }

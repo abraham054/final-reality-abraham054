@@ -34,7 +34,7 @@ public class Staff extends MagicWeapon {
      * */
     @Override
     public Boolean canEquipThief() {
-        return true;
+        return getIfAvailable();
     }
 
     /**
@@ -42,7 +42,7 @@ public class Staff extends MagicWeapon {
      * */
     @Override
     public Boolean canEquipBlackMage() {
-        return true;
+        return getIfAvailable();
     }
 
     /**
@@ -50,6 +50,6 @@ public class Staff extends MagicWeapon {
      * */
     @Override
     public Boolean canEquipWhiteMage() {
-        return true;
+        return getIfAvailable();
     }
 }

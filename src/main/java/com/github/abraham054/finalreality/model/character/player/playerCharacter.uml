@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="754.0" y="341.5">com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer</node>
+    <node x="248.0" y="500.0">com.github.abraham054.finalreality.model.character.player.magicPlayer.BlackMage</node>
+    <node x="496.0" y="500.0">com.github.abraham054.finalreality.model.character.player.commonPlayer.Thief</node>
+    <node x="0.0" y="500.0">com.github.abraham054.finalreality.model.character.player.magicPlayer.WhiteMage</node>
+    <node x="992.0" y="500.0">com.github.abraham054.finalreality.model.character.player.commonPlayer.Engineer</node>
+    <node x="131.25925925925924" y="319.0">com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer</node>
+    <node x="431.83333333333326" y="0.0">com.github.abraham054.finalreality.model.character.player.IPlayerCharacter</node>
+    <node x="744.0" y="500.0">com.github.abraham054.finalreality.model.character.player.commonPlayer.Knight</node>
+    <node x="429.83333333333326" y="148.0">com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.github.abraham054.finalreality.model.character.player.commonPlayer.Thief" target="com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer">
+      <point x="-57.0" y="-27.0" />
+      <point x="553.0" y="460.0" />
+      <point x="771.3333333333334" y="460.0" />
+      <point x="-86.66666666666663" y="38.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.commonPlayer.Knight" target="com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer">
+      <point x="-57.0" y="-27.0" />
+      <point x="801.0" y="480.0" />
+      <point x="840.6666666666666" y="480.0" />
+      <point x="-17.33333333333337" y="38.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer" target="com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter">
+      <point x="52.0" y="-38.0" />
+      <point x="910.0" y="289.0" />
+      <point x="632.8333333333333" y="289.0" />
+      <point x="87.0" y="60.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.commonPlayer.Engineer" target="com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer">
+      <point x="57.0" y="-27.0" />
+      <point x="1163.0" y="460.0" />
+      <point x="944.6666666666666" y="460.0" />
+      <point x="86.66666666666663" y="38.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.magicPlayer.WhiteMage" target="com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer">
+      <point x="57.0" y="-27.0" />
+      <point x="171.0" y="480.0" />
+      <point x="206.25925925925924" y="480.0" />
+      <point x="-25.0" y="60.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter" target="com.github.abraham054.finalreality.model.character.player.IPlayerCharacter">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer" target="com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter">
+      <point x="50.0" y="-60.5" />
+      <point x="281.25925925925924" y="299.0" />
+      <point x="516.8333333333333" y="299.0" />
+      <point x="-29.0" y="60.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.magicPlayer.BlackMage" target="com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer">
+      <point x="57.0" y="-27.0" />
+      <point x="419.0" y="470.0" />
+      <point x="306.25925925925924" y="470.0" />
+      <point x="75.0" y="60.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="315.0" y="95.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

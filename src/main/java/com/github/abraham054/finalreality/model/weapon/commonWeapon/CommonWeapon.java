@@ -1,6 +1,8 @@
 package com.github.abraham054.finalreality.model.weapon.commonWeapon;
 
 import com.github.abraham054.finalreality.model.weapon.AbstractWeapon;
+
+import java.util.LinkedList;
 import java.util.Objects;
 
 public abstract class CommonWeapon extends AbstractWeapon {
@@ -12,6 +14,16 @@ public abstract class CommonWeapon extends AbstractWeapon {
      */
     public CommonWeapon(String name, int weight, int damage) {
         super(name, weight, damage);
+    }
+
+    @Override
+    public LinkedList<String> getStats() {
+        LinkedList<String> stats = new LinkedList<>();
+        stats.add(getName());
+        stats.add(String.valueOf(getWeight()));
+        stats.add(String.valueOf(getDamage()));
+        stats.add(weaponState.toString());
+        return stats;
     }
 
     @Override

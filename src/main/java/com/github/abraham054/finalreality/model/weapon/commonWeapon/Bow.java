@@ -17,7 +17,7 @@ public class Bow extends CommonWeapon{
      * */
     @Override
     public Boolean canEquipEngineer() {
-        return true;
+        return getIfAvailable();
     }
 
     /**
@@ -33,7 +33,7 @@ public class Bow extends CommonWeapon{
      * */
     @Override
     public Boolean canEquipThief() {
-        return true;
+        return getIfAvailable();
     }
 
     /**

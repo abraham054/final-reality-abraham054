@@ -1,5 +1,9 @@
 package com.github.abraham054.finalreality.model.weapon;
 
+import com.github.abraham054.finalreality.utils.weaponStates.Available;
+import com.github.abraham054.finalreality.utils.weaponStates.Occupied;
+import com.github.abraham054.finalreality.utils.weaponStates.WeaponState;
+
 /**
  * A class that holds all the information of a weapon.
  *
@@ -11,6 +15,7 @@ public abstract class AbstractWeapon implements IWeapon{
   private final String name;
   private final int weight;
   private final int damage;
+  protected WeaponState weaponState;
 
   /**
    * Creates a weapon.
@@ -23,8 +28,18 @@ public abstract class AbstractWeapon implements IWeapon{
     this.name = name;
     this.weight = weight;
     this.damage = damage;
+    unEquip();
   }
 
+  @Override
+  public void equip(){
+    weaponState = new Occupied();
+  }
+
+  @Override
+  public void unEquip(){
+    weaponState = new Available();
+  }
   /**
    * Returns the weapon's name
    * */
@@ -47,6 +62,16 @@ public abstract class AbstractWeapon implements IWeapon{
   @Override
   public int getWeight() {
     return weight;
+  }
+
+  @Override
+  public boolean getIfAvailable(){
+    return weaponState.isAvailable();
+  }
+
+  @Override
+  public WeaponState getWeaponState(){
+    return weaponState;
   }
 
 }
