@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="282.0">com.github.abraham054.finalreality.utils.weaponFactory.StaffFactory</node>
+    <node x="310.50000000000006" y="0.0">com.github.abraham054.finalreality.utils.weaponFactory.IWeaponFactory</node>
+    <node x="643.0" y="293.5">com.github.abraham054.finalreality.utils.weaponFactory.SwordFactory</node>
+    <node x="165.00000000000003" y="293.5">com.github.abraham054.finalreality.utils.weaponFactory.AxeFactory</node>
+    <node x="479.0" y="293.5">com.github.abraham054.finalreality.utils.weaponFactory.KnifeFactory</node>
+    <node x="322.0" y="293.5">com.github.abraham054.finalreality.utils.weaponFactory.BowFactory</node>
+    <node x="282.50000000000006" y="104.0">com.github.abraham054.finalreality.utils.weaponFactory.AbstractWeaponFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.github.abraham054.finalreality.utils.weaponFactory.KnifeFactory" target="com.github.abraham054.finalreality.utils.weaponFactory.AbstractWeaponFactory">
+      <point x="36.00000000000003" y="-27.0" />
+      <point x="587.0" y="242.0" />
+      <point x="444.50000000000006" y="242.0" />
+      <point x="54.0" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.weaponFactory.StaffFactory" target="com.github.abraham054.finalreality.utils.weaponFactory.AbstractWeaponFactory">
+      <point x="36.25" y="-38.5" />
+      <point x="108.75" y="232.0" />
+      <point x="314.90000000000003" y="232.0" />
+      <point x="-75.60000000000002" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.weaponFactory.AxeFactory" target="com.github.abraham054.finalreality.utils.weaponFactory.AbstractWeaponFactory">
+      <point x="-34.25" y="-27.0" />
+      <point x="199.25000000000003" y="242.0" />
+      <point x="336.50000000000006" y="242.0" />
+      <point x="-54.0" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.weaponFactory.BowFactory" target="com.github.abraham054.finalreality.utils.weaponFactory.AbstractWeaponFactory">
+      <point x="-34.25" y="-27.0" />
+      <point x="356.25" y="262.0" />
+      <point x="379.70000000000005" y="262.0" />
+      <point x="-10.800000000000011" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.weaponFactory.AbstractWeaponFactory" target="com.github.abraham054.finalreality.utils.weaponFactory.IWeaponFactory">
+      <point x="0.0" y="-49.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.weaponFactory.SwordFactory" target="com.github.abraham054.finalreality.utils.weaponFactory.AbstractWeaponFactory">
+      <point x="36.0" y="-27.0" />
+      <point x="751.0" y="222.0" />
+      <point x="487.7" y="222.0" />
+      <point x="97.19999999999993" y="49.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="315.0" y="95.0" />
+  <SelectedNodes>
+    <node>com.github.abraham054.finalreality.utils.weaponFactory.StaffFactory</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

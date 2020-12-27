@@ -1,5 +1,6 @@
 package com.github.abraham054.finalreality.model.character;
 
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -45,6 +46,28 @@ public class Enemy extends AbstractCharacter {
   public int getAttackPoints() { return attackPoints; }
 
   /**
+   * Returns a list with the stats of the enemy (name, weight, defense, attack points and health points).
+   */
+  @Override
+  public LinkedList<String> getStats(){
+    LinkedList<String> stats = new LinkedList<>();
+    stats.add(getName());
+    stats.add("Weight: " + String.valueOf(getWeight()));
+    stats.add("Defense: " + String.valueOf(getDefense()));
+    stats.add("Attack points: " + String.valueOf(getAttackPoints()));
+    stats.add("Health points: " + String.valueOf(getHealthPoints()));
+    return stats;
+  }
+
+  /**
+   * It's an enemy not an ally therefore returns false.
+   */
+  @Override
+  public boolean isAlly() {
+    return false;
+  }
+
+  /**
    * Attacks an objective character when alive
    * */
   @Override
@@ -53,6 +76,7 @@ public class Enemy extends AbstractCharacter {
       int damage = getAttackPoints();
       character.receiveDamage(damage);
     }
+    endTurnEvent.firePropertyChange(name + " has attacked",null,this);
   }
 
   /**

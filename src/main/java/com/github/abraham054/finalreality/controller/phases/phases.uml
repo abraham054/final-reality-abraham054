@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="21.5" y="422.0">com.github.abraham054.finalreality.controller.phases.EnemyTurnPhase</node>
+    <node x="245.5" y="411.0">com.github.abraham054.finalreality.controller.phases.PlayerTurnPhase</node>
+    <node x="457.5" y="422.0">com.github.abraham054.finalreality.controller.phases.StartTurnsPhase</node>
+    <node x="111.49999999999996" y="0.0">com.github.abraham054.finalreality.controller.phases.Phase</node>
+    <node x="137.5" y="581.0">com.github.abraham054.finalreality.controller.phases.TurnPhase</node>
+    <node x="140.0" y="761.0">com.github.abraham054.finalreality.controller.phases.CheckQueuePhase</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.github.abraham054.finalreality.controller.phases.EnemyTurnPhase" target="com.github.abraham054.finalreality.controller.phases.CheckQueuePhase">
+      <point x="-48.0" y="49.0" />
+      <point x="69.5" y="721.0" />
+      <point x="203.92857142857144" y="721.0" />
+      <point x="-25.571428571428555" y="-49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.CheckQueuePhase" target="com.github.abraham054.finalreality.controller.phases.StartTurnsPhase">
+      <point x="76.71428571428572" y="-49.0" />
+      <point x="306.2142857142857" y="741.0" />
+      <point x="559.0" y="741.0" />
+      <point x="559.0" y="556.0" />
+      <point x="601.5" y="556.0" />
+      <point x="48.0" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.PlayerTurnPhase" target="com.github.abraham054.finalreality.controller.phases.CheckQueuePhase">
+      <point x="48.000000000000014" y="60.0" />
+      <point x="389.5" y="721.0" />
+      <point x="255.0714285714286" y="721.0" />
+      <point x="25.571428571428612" y="-49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.CheckQueuePhase" target="com.github.abraham054.finalreality.controller.phases.TurnPhase">
+      <point x="0.0" y="-49.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.CheckQueuePhase" target="com.github.abraham054.finalreality.controller.phases.Phase">
+      <point x="-76.71428571428572" y="-49.0" />
+      <point x="152.78571428571428" y="741.0" />
+      <point x="0.0" y="741.0" />
+      <point x="0.0" y="361.0" />
+      <point x="123.29999999999997" y="361.0" />
+      <point x="-106.19999999999999" y="170.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.EnemyTurnPhase" target="com.github.abraham054.finalreality.controller.phases.Phase">
+      <point x="48.0" y="-49.0" />
+      <point x="165.5" y="391.0" />
+      <point x="194.0999999999999" y="391.0" />
+      <point x="-35.400000000000034" y="170.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.StartTurnsPhase" target="com.github.abraham054.finalreality.controller.phases.Phase">
+      <point x="-48.0" y="-49.0" />
+      <point x="505.5" y="371.0" />
+      <point x="312.0999999999999" y="371.0" />
+      <point x="82.59999999999997" y="170.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.TurnPhase" target="com.github.abraham054.finalreality.controller.phases.Phase">
+      <point x="23.0" y="-60.0" />
+      <point x="252.5" y="556.0" />
+      <point x="235.0" y="556.0" />
+      <point x="235.0" y="391.0" />
+      <point x="241.2999999999999" y="391.0" />
+      <point x="11.799999999999955" y="170.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.StartTurnsPhase" target="com.github.abraham054.finalreality.controller.phases.CheckQueuePhase">
+      <point x="-48.0" y="49.0" />
+      <point x="505.5" y="556.0" />
+      <point x="548.0" y="556.0" />
+      <point x="548.0" y="731.0" />
+      <point x="280.64285714285717" y="731.0" />
+      <point x="51.14285714285717" y="-49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.PlayerTurnPhase" target="com.github.abraham054.finalreality.controller.phases.Phase">
+      <point x="-48.0" y="-60.0" />
+      <point x="293.5" y="391.0" />
+      <point x="264.8999999999999" y="391.0" />
+      <point x="35.39999999999998" y="170.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.TurnPhase" target="com.github.abraham054.finalreality.controller.phases.PlayerTurnPhase">
+      <point x="69.0" y="-60.0" />
+      <point x="298.5" y="556.0" />
+      <point x="293.5" y="556.0" />
+      <point x="-48.0" y="60.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.controller.phases.TurnPhase" target="com.github.abraham054.finalreality.controller.phases.EnemyTurnPhase">
+      <point x="-69.0" y="-60.0" />
+      <point x="160.5" y="556.0" />
+      <point x="165.5" y="556.0" />
+      <point x="48.0" y="49.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="346.0" y="304.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

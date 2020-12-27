@@ -25,7 +25,7 @@ public class Sword extends CommonWeapon {
      * */
     @Override
     public Boolean canEquipKnight() {
-        return true;
+        return getIfAvailable();
     }
 
     /**
@@ -33,7 +33,7 @@ public class Sword extends CommonWeapon {
      * */
     @Override
     public Boolean canEquipThief() {
-        return true;
+        return getIfAvailable();
     }
 
     /**

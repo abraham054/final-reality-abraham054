@@ -1,7 +1,10 @@
 package com.github.abraham054.finalreality.model.character.player;
 
+import com.github.abraham054.finalreality.controller.handlers.IEventHandler;
 import com.github.abraham054.finalreality.model.character.AbstractCharacter;
 import com.github.abraham054.finalreality.model.character.ICharacter;
+
+import java.beans.PropertyChangeSupport;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.Executors;
@@ -16,6 +19,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public abstract class AbstractPlayerCharacter extends AbstractCharacter implements IPlayerCharacter{
   protected IWeapon equippedWeapon = null;
+  private final PropertyChangeSupport beginTurnEvent = new PropertyChangeSupport(this);
+
 
   /**
    * Creates a new player character.
@@ -27,6 +32,14 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   protected AbstractPlayerCharacter(@NotNull BlockingQueue<ICharacter> turnsQueue,
                                     @NotNull String name, int defense, int healthPoints) {
     super(turnsQueue, name,defense,healthPoints);
+  }
+
+  /**
+   * It's an ally therefore returns true.
+   */
+  @Override
+  public boolean isAlly() {
+    return true;
   }
 
   /**
@@ -44,6 +57,7 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
     if(healthPoints > 0 && equippedWeapon != null) {
       int damage = getEquippedWeapon().getDamage();
       character.receiveDamage(damage);
+      endTurnEvent.firePropertyChange(name + " has attacked",null,this);
     }
   }
 
@@ -58,4 +72,17 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
             schedule(this::addToQueue, getEquippedWeapon().getWeight() / 10, TimeUnit.SECONDS);
   }
 
+  /**
+   * Adds a begin turn listener.
+   */
+  public void addBeginTurnListener(IEventHandler beginTurnHandler) {
+    beginTurnEvent.addPropertyChangeListener(beginTurnHandler);
+  }
+
+  /**
+   * Tells the begin turn event that the player turn has started.
+   */
+  public void isTurn() {
+    beginTurnEvent.firePropertyChange(name + "turn has started",null,this);
+  }
 }

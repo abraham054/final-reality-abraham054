@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="600.0">com.github.abraham054.finalreality.model.character.player.magicPlayer.BlackMage</node>
+    <node x="743.6666666666665" y="429.5">com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer</node>
+    <node x="991.9999999999999" y="600.0">com.github.abraham054.finalreality.model.character.player.commonPlayer.Thief</node>
+    <node x="247.9999999999999" y="600.0">com.github.abraham054.finalreality.model.character.player.magicPlayer.WhiteMage</node>
+    <node x="743.9999999999999" y="600.0">com.github.abraham054.finalreality.model.character.player.commonPlayer.Engineer</node>
+    <node x="135.9999999999999" y="407.0">com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer</node>
+    <node x="407.42592592592587" y="0.0">com.github.abraham054.finalreality.model.character.player.IPlayerCharacter</node>
+    <node x="495.9999999999999" y="600.0">com.github.abraham054.finalreality.model.character.player.commonPlayer.Knight</node>
+    <node x="384.42592592592587" y="148.0">com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.github.abraham054.finalreality.model.character.player.commonPlayer.Thief" target="com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer">
+      <point x="0.0" y="-27.0" />
+      <point x="1106.0" y="575.0" />
+      <point x="917.0" y="575.0" />
+      <point x="69.33333333333337" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.commonPlayer.Knight" target="com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer">
+      <point x="0.0" y="-27.0" />
+      <point x="609.9999999999999" y="575.0" />
+      <point x="778.3333333333333" y="575.0" />
+      <point x="-69.33333333333337" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer" target="com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter">
+      <point x="0.0" y="-49.0" />
+      <point x="847.6666666666665" y="382.0" />
+      <point x="589.9259259259259" y="382.0" />
+      <point x="68.5" y="104.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.commonPlayer.Engineer" target="com.github.abraham054.finalreality.model.character.player.commonPlayer.CommonAbstractPlayer">
+      <point x="0.0" y="-27.0" />
+      <point x="857.9999999999999" y="575.0" />
+      <point x="847.6666666666665" y="575.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.magicPlayer.WhiteMage" target="com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer">
+      <point x="0.0" y="-27.0" />
+      <point x="361.9999999999999" y="575.0" />
+      <point x="288.9999999999999" y="575.0" />
+      <point x="51.0" y="71.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter" target="com.github.abraham054.finalreality.model.character.player.IPlayerCharacter">
+      <point x="0.0" y="-104.5" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.magicPlayer.BlackMage" target="com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer">
+      <point x="0.0" y="-27.0" />
+      <point x="114.0" y="575.0" />
+      <point x="186.9999999999999" y="575.0" />
+      <point x="-51.0" y="71.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.model.character.player.magicPlayer.MagicAbstractPlayer" target="com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter">
+      <point x="0.0" y="-71.5" />
+      <point x="237.9999999999999" y="382.0" />
+      <point x="452.92592592592587" y="382.0" />
+      <point x="-68.5" y="104.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="536.0" y="353.0" />
+  <SelectedNodes>
+    <node>com.github.abraham054.finalreality.model.character.player.AbstractPlayerCharacter</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

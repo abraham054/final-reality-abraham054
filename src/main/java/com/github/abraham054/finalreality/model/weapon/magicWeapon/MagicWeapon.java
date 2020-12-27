@@ -1,6 +1,8 @@
 package com.github.abraham054.finalreality.model.weapon.magicWeapon;
 
 import com.github.abraham054.finalreality.model.weapon.AbstractWeapon;
+
+import java.util.LinkedList;
 import java.util.Objects;
 
 public abstract class MagicWeapon extends AbstractWeapon {
@@ -24,6 +26,20 @@ public abstract class MagicWeapon extends AbstractWeapon {
      * */
     public int getMagicDamage() {
         return magicDamage;
+    }
+
+    /**
+     * Returns a list with the weapon stats (Name, weight, damage, magic damage, weapon state).
+     */
+    @Override
+    public LinkedList<String> getStats() {
+        LinkedList<String> stats = new LinkedList<>();
+        stats.add(getName());
+        stats.add(String.valueOf(getWeight()));
+        stats.add(String.valueOf(getDamage()));
+        stats.add(String.valueOf(getMagicDamage()));
+        stats.add(weaponState.toString());
+        return stats;
     }
 
     @Override

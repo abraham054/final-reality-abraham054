@@ -17,7 +17,7 @@ public class Axe extends CommonWeapon {
      * */
     @Override
     public Boolean canEquipEngineer() {
-        return true;
+        return getIfAvailable();
     }
 
     /**
@@ -25,7 +25,7 @@ public class Axe extends CommonWeapon {
      * */
     @Override
     public Boolean canEquipKnight() {
-        return true;
+        return getIfAvailable();
     }
 
     /**

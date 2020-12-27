@@ -14,7 +14,7 @@ public class StaffFactory extends AbstractWeaponFactory{
         super(name);
         this.magicDamage = 70;
         this.weight = 12;
-        this.damage = 40;
+        this.damage = 70;
     }
 
     /**

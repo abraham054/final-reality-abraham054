@@ -11,7 +11,7 @@ public class KnifeFactoryTest extends AbstractWFTest {
 
     @Override
     public void setWeapon() {
-        weapon = new Knife(name,11,70);
+        weapon = new Knife(name,11,80);
     }
 
     @Override

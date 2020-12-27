@@ -11,7 +11,7 @@ public class StaffFactoryTest extends AbstractWFTest {
 
     @Override
     public void setWeapon() {
-        weapon = new Staff(name,12,40,70);
+        weapon = new Staff(name,12,70,70);
     }
 
     @Override

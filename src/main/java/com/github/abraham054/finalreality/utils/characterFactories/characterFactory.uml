@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1276.0" y="261.0">com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.BlackMageFactory</node>
+    <node x="164.0" y="409.0">com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.GoblinFactory</node>
+    <node x="332.0" y="261.0">com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.WhiteMageFactory</node>
+    <node x="336.0" y="409.0">com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.DemonFactory</node>
+    <node x="168.0" y="250.0">com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.EnemyFactory</node>
+    <node x="555.9166666666667" y="0.0">com.github.abraham054.finalreality.utils.characterFactories.AbstractCharacterFactory</node>
+    <node x="568.0" y="272.5">com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.KnightFactory</node>
+    <node x="0.0" y="409.0">com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.TrollFactory</node>
+    <node x="804.0" y="272.5">com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.ThiefFactory</node>
+    <node x="1040.0" y="272.5">com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.EngineerFactory</node>
+    <node x="116.0" y="33.0">com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.IEnemyFactory</node>
+    <node x="876.0" y="33.0">com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.IPlayerFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.GoblinFactory" target="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.EnemyFactory">
+      <point x="38.0" y="-15.0" />
+      <point x="278.0" y="389.0" />
+      <point x="252.0" y="389.0" />
+      <point x="12.0" y="49.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.KnightFactory" target="com.github.abraham054.finalreality.utils.characterFactories.AbstractCharacterFactory">
+      <point x="0.0" y="-27.0" />
+      <point x="-10.916666666666742" y="60.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.KnightFactory" target="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.IPlayerFactory">
+      <point x="72.0" y="-27.0" />
+      <point x="748.0" y="230.0" />
+      <point x="940.8" y="230.0" />
+      <point x="-43.200000000000045" y="27.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.EngineerFactory" target="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.IPlayerFactory">
+      <point x="72.0" y="-27.0" />
+      <point x="1220.0" y="170.0" />
+      <point x="1027.2" y="170.0" />
+      <point x="43.200000000000045" y="27.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.WhiteMageFactory" target="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.IPlayerFactory">
+      <point x="72.0" y="-38.5" />
+      <point x="512.0" y="220.0" />
+      <point x="897.6" y="220.0" />
+      <point x="-86.39999999999998" y="27.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.EnemyFactory" target="com.github.abraham054.finalreality.utils.characterFactories.AbstractCharacterFactory">
+      <point x="0.0" y="-49.5" />
+      <point x="240.0" y="170.0" />
+      <point x="566.8333333333334" y="170.0" />
+      <point x="-120.08333333333337" y="60.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.BlackMageFactory" target="com.github.abraham054.finalreality.utils.characterFactories.AbstractCharacterFactory">
+      <point x="0.0" y="-38.5" />
+      <point x="1384.0" y="150.0" />
+      <point x="807.0" y="150.0" />
+      <point x="120.08333333333326" y="60.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.ThiefFactory" target="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.IPlayerFactory">
+      <point x="72.0" y="-27.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.ThiefFactory" target="com.github.abraham054.finalreality.utils.characterFactories.AbstractCharacterFactory">
+      <point x="0.0" y="-27.0" />
+      <point x="912.0" y="200.0" />
+      <point x="719.6666666666667" y="200.0" />
+      <point x="32.75" y="60.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.EnemyFactory" target="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.IEnemyFactory">
+      <point x="-48.0" y="-49.5" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.BlackMageFactory" target="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.IPlayerFactory">
+      <point x="72.0" y="-38.5" />
+      <point x="1456.0" y="140.0" />
+      <point x="1070.4" y="140.0" />
+      <point x="86.40000000000009" y="27.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.EngineerFactory" target="com.github.abraham054.finalreality.utils.characterFactories.AbstractCharacterFactory">
+      <point x="0.0" y="-27.0" />
+      <point x="1148.0" y="180.0" />
+      <point x="763.3333333333333" y="180.0" />
+      <point x="76.41666666666652" y="60.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.DemonFactory" target="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.EnemyFactory">
+      <point x="36.0" y="-15.0" />
+      <point x="444.0" y="369.0" />
+      <point x="300.0" y="369.0" />
+      <point x="60.0" y="49.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.TrollFactory" target="com.github.abraham054.finalreality.utils.characterFactories.EnemyFactory.EnemyFactory">
+      <point x="-36.0" y="-15.0" />
+      <point x="36.0" y="369.0" />
+      <point x="180.0" y="369.0" />
+      <point x="-60.0" y="49.5" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.characterFactories.PlayerFactory.WhiteMageFactory" target="com.github.abraham054.finalreality.utils.characterFactories.AbstractCharacterFactory">
+      <point x="-72.0" y="-38.5" />
+      <point x="368.0" y="190.0" />
+      <point x="610.5000000000001" y="190.0" />
+      <point x="-76.41666666666663" y="60.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="501.0" y="95.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

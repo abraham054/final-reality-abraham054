@@ -6,6 +6,7 @@ import com.github.abraham054.finalreality.model.character.player.commonPlayer.En
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class EngineerTest extends CommonPlayerTest{
@@ -44,6 +45,18 @@ public class EngineerTest extends CommonPlayerTest{
         assertEquals(Bow,testPlayer.getEquippedWeapon());
         waitTurnTest();
         dead.equipWeapon(Axe);
+    }
+
+    @Test
+    public void testStats() {
+        LinkedList<String> stats = new LinkedList<>();
+        stats.add(inge.getName());
+        stats.add("Defense: " + String.valueOf(inge.getDefense()));
+        stats.add("Health points: " + String.valueOf(inge.getHealthPoints()));
+        assertEquals(stats,inge.getStats());
+        inge.equipWeapon(Axe);
+        stats.add("Arma: " + inge.getEquippedWeapon().getName());
+        assertEquals(stats,inge.getStats());
     }
 
     @Test

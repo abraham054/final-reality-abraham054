@@ -1,5 +1,7 @@
 package com.github.abraham054.finalreality.model.character;
 
+import java.util.LinkedList;
+
 /**
  * This represents a character from the game.
  * A character can be controlled by the player or by the CPU (an enemy).
@@ -29,5 +31,15 @@ public interface ICharacter {
    * Returns the health points of the character.
    */
   int getHealthPoints();
+
+  /**
+   * Returns true if the character is a player character, if it's an enemy returns false.
+   */
+  boolean isAlly();
+
+  /**
+   * Returns a list with the stats of the character.
+   */
+  LinkedList<String> getStats();
 
 }

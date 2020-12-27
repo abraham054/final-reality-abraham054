@@ -6,6 +6,8 @@ public abstract class MagicWeaponTest extends AbstractWeaponTest {
 
     int magicDamage = 15;
 
+    abstract void testMagicDamage();
+
     @Override
     public void setName() { name = "Magic Weapon";}
 

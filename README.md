@@ -16,18 +16,14 @@ enemies controlled by the computer.
 
 ---
 
-Por ahora el programa esta en la etapa donde el modelo y el controlador estan implementados
-pero falta la vista, por lo que la ejecucion del programa se limita a correr los test para 
-revisar el coverage.
-Para la logica dentro del programa se decidio el uso de interfaces como nexos entre distintas 
-clases que compartian comportamientos, tales como las distintas armas o los distintos
-personajes, luego se crearon clases abstractas que contenian los valores necesarios a guardar
-e implementaban parte de las funciones de las interfaces, finalmente se crea uno por uno los
-personajes usables y las armas para poder hacerlas tener sus comportamientos unicos, como 
-las armas solo poder equiparse a ciertas clases o los personajes ver que se pueden equipar.
-Los factory creados tienen una logica de construccion similar pero su utilidad es a la hora de 
-implementar el controlador donde se crean y guardas los personajes que pertenecen al juego,
-donde permiten crean muchas instancias de distintas clases con mucha facilidad en el caso de 
-crear muchos enemigos de un tipo especifico, o armas extra.
-el controlador contiene listas de los personajes, los enemigos e inventario, dentro de sus metodos 
-maneja la logica del juego y permite que los modelos interactuen entre si.
+Este programa se inicia con el main de la gui, FinalReality.java, desde ahi se encontrara en un 
+menu de inventario donde sera capaz de equipar a los aliados y cambiar sus armas cuantas veces
+quiera, una vez todos equipados puede iniciar el combate con el boton correspondiente.
+ahora que empieza el combate el boton next sera para poder avanzar en el combate, una vez los turnos
+lleguen a la cola de turnos podra empezar a batallar, ahi seleccionar a un enemigo y atacarlo
+le permitira avanzar en el combate, cuando su equipo se vea atacado por un enemigo sera notificado
+al igual que cuando la cola de turnos se acabe, en ese momento podra regresar al menu de inventario para decidir
+ si cambiar las armas de su equipo, o directamente continuar con la siguiente ronda de peleas.
+ cuando su equipo sea aniquilado o destroce a su adversario se le notificara con una pantalla
+ correspondiente acabando asi el juego. Si lo desea durante el transcurso del combate puede 
+ ver la consola que ira narrando los sucesos durante la batalla.
