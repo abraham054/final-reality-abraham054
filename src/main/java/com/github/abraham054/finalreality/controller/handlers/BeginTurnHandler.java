@@ -11,6 +11,9 @@ public class BeginTurnHandler extends EventHandler {
         super(controller);
     }
 
+    /**
+     * Tells the controller that a turn started.
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         controller.startedTurn((AbstractPlayerCharacter) evt.getNewValue());

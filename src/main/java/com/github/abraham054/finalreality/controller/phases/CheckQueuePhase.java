@@ -4,11 +4,18 @@ import com.github.abraham054.finalreality.controller.exceptions.InvalidTransitio
 
 public class CheckQueuePhase extends Phase{
 
+    /**
+     * Returns a string with the name of this phase.
+     */
     @Override
     public String toString() {
         return "CheckQueuePhase";
     }
 
+    /**
+     * Tries to change the phase to turn phase if the controller's queue is not empty, if not able to change
+     * throws an exception.
+     */
     @Override
     public void toTurnPhase() throws InvalidTransitionException {
         if(checkQueue()){
@@ -18,6 +25,9 @@ public class CheckQueuePhase extends Phase{
         }
     }
 
+    /**
+     * Changes phase to start turns phase.
+     */
     @Override
     public void toStartTurnsPhase() {
         changePhase(new StartTurnsPhase());

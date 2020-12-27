@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="91.0" y="0.0">com.github.abraham054.finalreality.utils.weaponStates.WeaponState</node>
+    <node x="0.0" y="126.0">com.github.abraham054.finalreality.utils.weaponStates.Available</node>
+    <node x="182.0" y="126.0">com.github.abraham054.finalreality.utils.weaponStates.Occupied</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.github.abraham054.finalreality.utils.weaponStates.Available" target="com.github.abraham054.finalreality.utils.weaponStates.WeaponState">
+      <point x="0.0" y="-38.0" />
+      <point x="81.0" y="101.0" />
+      <point x="131.5" y="101.0" />
+      <point x="-40.5" y="38.0" />
+    </edge>
+    <edge source="com.github.abraham054.finalreality.utils.weaponStates.Occupied" target="com.github.abraham054.finalreality.utils.weaponStates.WeaponState">
+      <point x="0.0" y="-38.0" />
+      <point x="263.0" y="101.0" />
+      <point x="212.5" y="101.0" />
+      <point x="40.5" y="38.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="346.0" y="95.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

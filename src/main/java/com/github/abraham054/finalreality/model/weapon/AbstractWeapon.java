@@ -31,11 +31,17 @@ public abstract class AbstractWeapon implements IWeapon{
     unEquip();
   }
 
+  /**
+   * Changes the state of the weapon to unavailable.
+   * */
   @Override
   public void equip(){
     weaponState = new Occupied();
   }
 
+  /**
+   * Changes the state of the weapon to available.
+   * */
   @Override
   public void unEquip(){
     weaponState = new Available();
@@ -64,11 +70,17 @@ public abstract class AbstractWeapon implements IWeapon{
     return weight;
   }
 
+  /**
+   * Returns true if the weapon si available by checking the weapon state.
+   * */
   @Override
   public boolean getIfAvailable(){
     return weaponState.isAvailable();
   }
 
+  /**
+   * Returns the weapon state.
+   * */
   @Override
   public WeaponState getWeaponState(){
     return weaponState;

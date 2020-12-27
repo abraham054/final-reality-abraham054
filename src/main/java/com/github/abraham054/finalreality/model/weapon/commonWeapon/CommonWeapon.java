@@ -16,6 +16,9 @@ public abstract class CommonWeapon extends AbstractWeapon {
         super(name, weight, damage);
     }
 
+    /**
+     * Returns a list with the weapon stats (Name, weight, damage, weapon state).
+     */
     @Override
     public LinkedList<String> getStats() {
         LinkedList<String> stats = new LinkedList<>();

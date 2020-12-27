@@ -36,7 +36,8 @@ public class GameController {
     private Phase phase;
 
     /**
-     * The constructor starts by creating the player characters, enemies and weapon in the inventory.
+     * The constructor starts by creating the player characters, enemies and weapon in the inventory
+     * then sets the controller's phase to start turn phase and selects the first ally and enemy from their respective lists.
      * */
     public GameController(){
         createPlayer();
@@ -48,22 +49,37 @@ public class GameController {
         selectEnemy(0);
     }
 
+    /**
+     * Returns the controller selected ally.
+     */
     public AbstractPlayerCharacter getSelectedAlly(){
         return selectedPlayer;
     }
 
+    /**
+     * Returns the controller selected enemy.
+     */
     public Enemy getSelectedEnemy(){
         return selectedEnemy;
     }
 
+    /**
+     * Changes the controller selected ally.
+     */
     public void selectAlly(int index){
         selectedPlayer = getAlly(index);
     }
 
+    /**
+     * Changes the controller selected enemy.
+     */
     public void selectEnemy(int index){
         selectedEnemy = getEnemy(index);
     }
 
+    /**
+     * sets the listeners for each enemy and ally.
+     */
     private void setListeners() {
         for (AbstractPlayerCharacter playerCharacter:
              playerCharacters) {
@@ -108,16 +124,25 @@ public class GameController {
         startEnemyTurns();
     }
 
+    /**
+     * Gets the ally in the turns head and triggers it's the begin turn listener.
+     */
     public void allyTurn(){
         AbstractPlayerCharacter playerCharacter = (AbstractPlayerCharacter) turns.peek();
         playerCharacter.isTurn();
     }
 
+    /**
+     * Makes the player character in the turns head attack the controller's selected enemy.
+     */
     public void turnAttackAnEnemy(){
         AbstractPlayerCharacter playerCharacter = (AbstractPlayerCharacter) turns.peek();
         attackEnemy(playerCharacter,selectedEnemy);
     }
 
+    /**
+     * Makes the enemy in the turns head attack an ally.
+     */
     public void turnAttackAPlayer() {
         Enemy enemy = (Enemy) turns.peek();
         attackPlayer(enemy);
@@ -142,6 +167,9 @@ public class GameController {
         enemy.attack(objective);
     }
 
+    /**
+     * Equips the controller's selected ally with a weapon.
+     */
     public void equipSelectedAlly(IWeapon weapon){
         int index = playerCharacters.indexOf(selectedPlayer);
         equipWeapon(index,weapon);
@@ -166,7 +194,6 @@ public class GameController {
      * Checks if the enemies are all dead, by checking if the list is empty
      * */
     public boolean deadEnemies(){
-        System.out.println(enemies.isEmpty()+ " estado enemies");
         return enemies.isEmpty();
     }
 
@@ -177,18 +204,24 @@ public class GameController {
         return playerCharacters.isEmpty();
     }
 
+    /**
+     * Prints the name + a phrase saying that a player character started it's turn.
+     */
     public void startedTurn(AbstractPlayerCharacter playerCharacter) {
-        System.out.println(playerCharacter.getName()+ " started his turn");
+        System.out.println(playerCharacter.getName()+ " started it's turn");
     }
 
     /**
      * Receives a character, which can be an enemy or a player character, and end it's turn.
      * */
     public void endedTurn(AbstractCharacter character) {
-        System.out.println(character.getName()+ " ended his turn");
+        System.out.println(character.getName()+ " ended it's turn");
         turns.remove(character);
     }
 
+    /**
+     * Tells that a player died and makes the necessary process to erase it from the player list.
+     */
     public boolean playerIsDead(AbstractPlayerCharacter playerCharacter) {
         System.out.println(playerCharacter.getName()+ " is dead");
         turns.remove(playerCharacter);
@@ -197,6 +230,9 @@ public class GameController {
         return deadAllies();
     }
 
+    /**
+     * Tells that an enemy died and makes the necessary process to erase it from the enemy list.
+     */
     public boolean enemyIsDead(Enemy enemy){
         System.out.println(enemy.getName()+ " is dead");
         turns.remove(enemy);
@@ -255,7 +291,9 @@ public class GameController {
     /**
      * Adds a pre design weapon to the list, by using a factory
      * */
-    public void addWeapon(IWeaponFactory factory) { inventory.add(factory.make());}
+    public void addWeapon(IWeaponFactory factory) {
+        inventory.add(factory.make());
+    }
 
     /**
      * Returns the list of the inventory.
@@ -299,19 +337,31 @@ public class GameController {
         return turns;
     }
 
+    /**
+     * Returns the turns head.
+     */
     public ICharacter getTurnsHead(){
         return turns.peek();
     }
 
+    /**
+     * Returns true if the turns head is an ally.
+     */
     public Boolean isAllyTurn(){
         return getTurnsHead().isAlly();
     }
 
+    /**
+     * Changes the controller's phase.
+     */
     public void setPhase(Phase phase) {
         this.phase = phase;
         phase.setController(this);
     }
 
+    /**
+     * Tries to interact with the controller's phase, if possible goes to start turns phase.
+     */
     public void tryGoToMenu(){
         try{
             phase.toStartTurnsPhase();
@@ -320,8 +370,11 @@ public class GameController {
         }
     }
 
+    /**
+     * Tries to interact with the controller's phase, if possible starts the turns.
+     */
     public void tryBeginCombat(){
-        if(allTeamEquiped()){
+        if(allTeamEquipped()){
             try{
                 phase.StartTurns();
             } catch (InvalidTurnException e){
@@ -330,6 +383,9 @@ public class GameController {
         }
     }
 
+    /**
+     * Tries to interact with the controller's phase, if possible starts playing a turn.
+     */
     public void tryFight(){
         try{
             phase.playTurn();
@@ -338,6 +394,9 @@ public class GameController {
         }
     }
 
+    /**
+     * Tries to interact with the controller's phase, if possible goes to turn phase.
+     */
     public void tryStartTurn() {
         try{
             phase.toTurnPhase();
@@ -346,6 +405,9 @@ public class GameController {
         }
     }
 
+    /**
+     * Tries to interact with the controller's phase, if possible makes the player in the turn's head attack.
+     */
     public void tryPlayerAttack(){
         try{
             phase.attack();
@@ -354,6 +416,10 @@ public class GameController {
         }
     }
 
+    /**
+     * Tries to interact with the controller's phase, checks if the turn's head is an enemy.
+     * If it was an enemy makes it attack a player returning true, else returns false.
+     */
     public boolean tryEnemyAttack() {
         if (!turns.peek().isAlly()) {
             try {
@@ -366,7 +432,10 @@ public class GameController {
         return false;
     }
 
-    public boolean allTeamEquiped() {
+    /**
+     * Checks if every player in the player's list has a weapon, if so returns true, else returns false.
+     */
+    public boolean allTeamEquipped() {
         for (AbstractPlayerCharacter playerChar :
                 getPlayerCharacters()) {
             if (playerChar.getEquippedWeapon() == null){
@@ -376,28 +445,46 @@ public class GameController {
         return true;
     }
 
+    /**
+     * Returns a list with the stats of an specific player from the players list.
+     */
     public LinkedList<String> getPlayerStats(int index){
         AbstractPlayerCharacter playerCharacter = getAlly(index);
         return playerCharacter.getStats();
     }
 
+    /**
+     * Returns a list with the stats of an specific enemy from the enemies list.
+     */
     public LinkedList<String> getEnemyStats(int index){
         Enemy enemy = getEnemy(index);
         return enemy.getStats();
     }
 
+    /**
+     * Returns a list with the stats of an specific weapon from the weapons list.
+     */
     public LinkedList<String> getWeaponStats(int index){
         return getInventory().get(index).getStats();
     }
 
+    /**
+     * Returns a string with the controller's phase name.
+     */
     public String getPhaseString(){
         return phase.toString();
     }
 
+    /**
+     * Returns the controller's phase.
+     */
     public Phase getPhase(){
         return phase;
     }
 
+    /**
+     * Checks if the controller's phase allows attacking, returning true if so, else returns false.
+     */
     public boolean playerTurn() {
         return phase.canAttack();
     }

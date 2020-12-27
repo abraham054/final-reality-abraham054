@@ -11,6 +11,9 @@ public class EndTurnHandler extends EventHandler {
         super(controller);
     }
 
+    /**
+     * Tells the controller that a turn ended.
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         controller.endedTurn((AbstractCharacter) evt.getNewValue());

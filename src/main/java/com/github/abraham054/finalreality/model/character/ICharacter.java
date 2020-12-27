@@ -32,8 +32,14 @@ public interface ICharacter {
    */
   int getHealthPoints();
 
+  /**
+   * Returns true if the character is a player character, if it's an enemy returns false.
+   */
   boolean isAlly();
 
-  public LinkedList<String> getStats();
+  /**
+   * Returns a list with the stats of the character.
+   */
+  LinkedList<String> getStats();
 
 }

@@ -7,18 +7,33 @@ import java.util.LinkedList;
 public interface IWeapon {
 
     /**
-     * Returns the weapon's name
+     * Returns the weapon's name.
      * */
     String getName();
 
+    /**
+     * Returns a list with string of the weapon stats (name, weight, etc).
+     * */
     LinkedList<String> getStats();
 
+    /**
+     * Changes the state of the weapon to available.
+     * */
     void unEquip();
 
+    /**
+     * Changes the state of the weapon to occupied.
+     * */
     void equip();
 
+    /**
+     * Returns true if the weapon is available.
+     * */
     boolean getIfAvailable();
 
+    /**
+     * Returns the weapon state
+     * */
     WeaponState getWeaponState();
 
     /**

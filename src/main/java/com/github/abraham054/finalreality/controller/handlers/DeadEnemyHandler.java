@@ -10,6 +10,9 @@ public class DeadEnemyHandler extends EventHandler{
         super(controller);
     }
 
+    /**
+     * Tells the controller that an enemy died.
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         controller.enemyIsDead((Enemy) evt.getNewValue());

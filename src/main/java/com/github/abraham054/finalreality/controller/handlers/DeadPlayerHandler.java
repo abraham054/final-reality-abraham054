@@ -10,6 +10,9 @@ public class DeadPlayerHandler extends EventHandler {
         super(controller);
     }
 
+    /**
+     * Tells the controller that a player died.
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         controller.playerIsDead((AbstractPlayerCharacter) evt.getNewValue());

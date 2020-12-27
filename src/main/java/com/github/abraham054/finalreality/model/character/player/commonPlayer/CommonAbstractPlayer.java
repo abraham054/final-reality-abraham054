@@ -23,6 +23,9 @@ public abstract class CommonAbstractPlayer extends AbstractPlayerCharacter {
         super(turnsQueue, name,defense,healthPoints);
     }
 
+    /**
+     * Returns a list with the common player stats (name, defense, health points and weapon if equipped).
+     */
     @Override
     public LinkedList<String> getStats(){
         LinkedList<String> stats = new LinkedList<>();

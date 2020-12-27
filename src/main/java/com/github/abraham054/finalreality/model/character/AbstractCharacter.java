@@ -66,16 +66,19 @@ public abstract class AbstractCharacter implements ICharacter {
    * */
   protected abstract void attack(AbstractCharacter character);
 
+  /**
+   * Adds an end turn listener.
+   */
   public void addEndTurnListener(IEventHandler endTurnHandler) {
     endTurnEvent.addPropertyChangeListener(endTurnHandler);
   }
 
+  /**
+   * Adds a dead listener.
+   */
   public void addDeadListener(IEventHandler deadHandler){
     dyingEvent.addPropertyChangeListener(deadHandler);
   }
-
-  @Override
-  public abstract LinkedList<String> getStats();
 
   /**
    * Returns the health points of the abstract character.

@@ -33,6 +33,9 @@ public abstract class MagicAbstractPlayer extends AbstractPlayerCharacter {
         return this.mana;
     }
 
+    /**
+     * Returns a list with the magic player stats (name, defense, health points, mana and weapon if equipped).
+     */
     @Override
     public LinkedList<String> getStats(){
         LinkedList<String> stats = new LinkedList<>();

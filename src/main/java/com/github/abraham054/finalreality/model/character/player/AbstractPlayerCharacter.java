@@ -34,6 +34,9 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
     super(turnsQueue, name,defense,healthPoints);
   }
 
+  /**
+   * It's an ally therefore returns true.
+   */
   @Override
   public boolean isAlly() {
     return true;
@@ -69,10 +72,16 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
             schedule(this::addToQueue, getEquippedWeapon().getWeight() / 10, TimeUnit.SECONDS);
   }
 
+  /**
+   * Adds a begin turn listener.
+   */
   public void addBeginTurnListener(IEventHandler beginTurnHandler) {
     beginTurnEvent.addPropertyChangeListener(beginTurnHandler);
   }
 
+  /**
+   * Tells the begin turn event that the player turn has started.
+   */
   public void isTurn() {
     beginTurnEvent.firePropertyChange(name + "turn has started",null,this);
   }

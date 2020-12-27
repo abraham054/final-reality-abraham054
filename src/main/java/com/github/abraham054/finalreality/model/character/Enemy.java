@@ -45,6 +45,9 @@ public class Enemy extends AbstractCharacter {
    * */
   public int getAttackPoints() { return attackPoints; }
 
+  /**
+   * Returns a list with the stats of the enemy (name, weight, defense, attack points and health points).
+   */
   @Override
   public LinkedList<String> getStats(){
     LinkedList<String> stats = new LinkedList<>();
@@ -56,6 +59,9 @@ public class Enemy extends AbstractCharacter {
     return stats;
   }
 
+  /**
+   * It's an enemy not an ally therefore returns false.
+   */
   @Override
   public boolean isAlly() {
     return false;

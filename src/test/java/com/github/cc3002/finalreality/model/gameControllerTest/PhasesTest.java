@@ -44,7 +44,9 @@ public class PhasesTest {
         }catch (InvalidTransitionException e){
             e.printStackTrace();
         }
-        controller.equipWeapon(2,new Knife("Knife",13,0)); //Caballero equipa cuchillo
+        controller.selectAlly(2);
+        controller.equipSelectedAlly(new Knife("Knife",13,0));
+        controller.selectAlly(0);
         assertEquals("StartTurnsPhase",controller.getPhaseString());
         controller.tryBeginCombat();
         assertEquals("CheckQueuePhase",controller.getPhaseString());
@@ -70,7 +72,7 @@ public class PhasesTest {
         controller.tryStartTurn();
         boolean allyAttacked = false;
         boolean enemyAttacked = false;
-        for (ICharacter character :
+        for (ICharacter ignored :
                 controller.getTurns()) {
             if(allyAttacked && enemyAttacked){
                 break;

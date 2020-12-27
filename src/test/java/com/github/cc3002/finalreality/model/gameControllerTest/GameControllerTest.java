@@ -90,9 +90,9 @@ public class GameControllerTest implements IGameControllerTest{
 
     @Test
     public void testEquippedTeam(){
-        assertTrue(gameController.allTeamEquiped());
+        assertTrue(gameController.allTeamEquipped());
         gameController.addPlayerCharacter(new BlackMageFactory(new LinkedBlockingDeque<>(),"Mago de ejemplo"));
-        assertFalse(gameController.allTeamEquiped());
+        assertFalse(gameController.allTeamEquipped());
     }
 
     @Test
